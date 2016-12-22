@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/buycar.css"/>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cookieUtil.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--header-->
+		<div id="header">
+			<div id="header-top">
+				<div class="_left">
+					<span class="welcome">您好，欢迎来到云汉芯城</span>
+					<ul class="login">
+						<li><a href="login.html" class="theme-link">请登录</a></li>
+						<li><span class="headline">|</span></li>
+						<li><a href="register.html" class="theme-link">免费注册</a></li>
+					</ul>
+				</div>
+				<div class="_right">
+					<ul>
+						<li class="vip">
+							<span>
+								<i class="icon-member"></i>
+								<a href="#" class="theme-link">会员中心&ensp;</a>
+								<i class="icon-jt"></i>
+							</span>
+							<div class="minicenter">
+								<div class="minicentercon">
+									<p>
+										<span class="theme-link">您好</span>
+										<a href="#" class="theme-link">请登录</a>
+									</p>
+									<ul>
+										<li><a href="#">我的订单</a></li>
+										<li class="headline">|</li>
+										<li><a href="#">询价管理</a></li>
+										<br/>
+										<li><a href="#">优惠券</a></li>
+										<li class="headline">|</li>
+										<li><a href="#">售后管理</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li><span class="headline">|</li>
+						<li class="qqkf">
+							<span>
+								<i class="icon-qq"></i>
+								<a href="#">
+									在线客服 ：4008626630
+								</a>
+							</span>
+						</li>
+						<li><span class="headline">|</li>
+						<li class="call-center">
+							<span>
+								<i class="icon-call"></i>
+								客服中心 ：400-862-6630
+							</span>
+						</li>
+						<li><label class="headline">|</li>
+						<li class="servicetime">服务时间：9:00-18:00</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--log-->
+		<div id="log">
+			<div id="logcon">
+				<h1>
+					<a href="index.html"><img src="image/logo.png" alt="ickey"/></a>
+				</h1>
+				<span class="buy-car">购物车</span>
+				<img src="image/cart-step1.png"/ class="fr mt5">
+			</div>
+		</div>
+		<!--container-->
+		<div id="container" class="mt20">
+			<div class="cart-title rel">
+				<ul class="bar-tabs-cart">
+					<li><a href="#">国内交货</a></li>
+				</ul>
+				<div class="carriage">
+					运费¥22，满¥100免运费
+				</div>
+			</div>
+			<div class="tab-content">
+				<div class="tab-pane">
+					<table>
+						<thead>
+							<tr>
+								<th width="80">
+									<input type="checkbox" id="checkall"  class="allcheck" />
+									<label for="checkall">全选</label>
+								</th>
+								<th width="200">商品名称</th>
+								<th width="250">详情</th>
+								<th width="250">合同单价</th>
+								<th width="200">数量</th>
+								<th width="200">小计</th>
+								<th width="100">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!--<tr>
+								<td><input type="checkbox" checked="checked"/></td>
+								<td><a href="#">EWHOJM221D12OT</a></td>
+								<td>
+									<div>厂牌：AISHI</div>
+									<div>供应商：云汉芯城</div>
+									<div>货期：2-4周</div>
+								</td>
+								<td><span>¥<em class="unitPrice">0.064</em></span></td>
+								<td><input type="text" class="num" value="1000"/><br /><span>库存1000</span></td>
+								<td><span style="font-weight: 900;">¥<em class="totalPrices">64</em></span></td>
+								<td><a href="javascript:;">删除</a></td>
+							</tr>-->
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="7" class="rel">
+									<div class="fl" style="height: 28px;line-height: 28px;">
+										<span class="pr10">
+											<input type="checkbox" class="allcheck" />
+											<label >全选</label>
+										</span>
+										<a href="javascript:;" class="alldel">批量删除</a>
+									</div>
+									<div class="fr">
+										<span class="pr30">已选<em class="f60 commodityNum">1</em>个型号</span>
+										<span class="pr10">
+											总金额（不含运费）：
+											<strong>¥<em class="AlltotalPrices"></em></strong>
+										</span>
+										<a href="javascript:;" class="paybtn">去结算</a>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div id="footer">
+			<div class="footer-fastlink">
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul style="border-right: 0;">
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-address">
+				<p>
+	            	地址：上海市漕河泾松江新兴产业园32号11层（莘砖公路258号）　客服热线：400-862-6630 (9:00-18:00) 　投诉电话：021-64821936-9120
+	        	</p>
+	        	<p style="margin-top: 10px;">© 2016 www.ickey.cn 　沪ICP备10202707号</p>
+			</div>
+			<div class="footer-logo">
+				<span><a href="#" class="logo_alipay"></a></span>
+				<span><a href="#" class="logo_tenpay"></a></span>
+				<span><a href="#" class="logo_unionpay"></a></span>
+				<span><a href="#" class="logo_ups"></a></span>
+				<span><a href="#" class="logo_fedex"></a></span>
+				<span><a href="#" class="logo_sfexpress"></a></span>
+				<span><a href="#" class="logo_gsj"></a></span>
+			</div>
+		</div>
+		<!--右侧栏-->
+		<div id="navtoolbar">
+			<div class="bottomtoolbar">
+				<a href="javascript:;"><img src="image/gotop.png"/></a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//加载cookie
+			var cookieName = "cartCookie";
+			var strCookie = cookieUtil.getCookie(cookieName);
+			var oBCookie = JSON.parse(strCookie);
+			var html = "";
+			var allprice = 0;
+			for(var i=0; i<oBCookie.list.length; i++){
+				html += "<tr><td><input type='checkbox' class='check'></td>";
+				html += "<td><a href='#'>"+oBCookie.list[i].name+"</a></td>";
+				html += "<td><div>厂牌：AISHI</div><div>供应商："+oBCookie.list[i].supplier+"</div><div>货期："+oBCookie.list[i].time;
+				html += "</div></td><td><span>¥<em class='unitPrice'>"+oBCookie.list[i].unitPrice+"</em></span></td>";
+				html += "<td><input type='text' class='num' value='"+oBCookie.list[i].minnum+"'/><br/><span>库存"+oBCookie.list[i].maxnum+"</span></td>";
+				html += "<td><span style='font-weight:900;'>¥<em class='totalPrices'>"+oBCookie.list[i].totalPrices+"</em></span></td>";
+				html += "<td><a href='javascript:;' class='del'>删除</a></td>"
+				//allprice +=oBCookie.list[i].totalPrices;
+			}
+			$("tbody").html(html);
+			$(".num").blur(function(){
+				allprice = 0;
+				$(this).parent().siblings().eq(4).children().children().html(Number($(this).parent().siblings().eq(3).children().children().html()) * Number($(this).val()));
+				for(var i=0; i<oBCookie.list.length; i++){
+					allprice +=Number($(".totalPrices")[i].innerHTML);
+				}
+				$(".AlltotalPrices").html(allprice);
+			})
+			//已选商品数量
+			$(".commodityNum").html($(".check:checked").length)
+			$(".check").click(function(){
+				allprice = 0;
+				$(".commodityNum").html($(".check:checked").length);
+				$(".check").each(function(){
+					if($(this).prop("checked")){
+						allprice += Number($(this).parent().siblings().eq(4).children().children().html());
+						console.log(allprice)
+					}
+					$(".AlltotalPrices").html(allprice);
+				})
+			})
+			$(".AlltotalPrices").html(allprice);
+			var flag = true;
+			$(".allcheck").click(function(){
+				allprice = 0;
+				if(flag){
+					$(":checkbox").prop("checked",true);
+					$(".commodityNum").html($(".check:checked").length);
+					$(".check").each(function(){
+					if($(this).prop("checked")){
+						allprice += Number($(this).parent().siblings().eq(4).children().children().html());
+					}
+					$(".AlltotalPrices").html(allprice);
+				})
+					flag = false;
+				}else{
+					$(":checkbox").prop("checked",false);
+					$(".commodityNum").html($(".check:checked").length);
+					$(".check").each(function(){
+					if($(this).prop("checked")){
+						allprice += Number($(this).parent().siblings().eq(4).children().children().html());
+						console.log(allprice)
+					}
+					$(".AlltotalPrices").html(allprice);
+				})
+					flag = true;
+				}
+			})
+			//删除商品
+			$(".del").click(function(){
+				allprice = 0;
+				$(this).parent().parent().remove();
+				$(".commodityNum").html($(".check:checked").length);
+				$(".check").each(function(){
+					if($(this).prop("checked")){
+						allprice += Number($(this).parent().siblings().eq(4).children().children().html());
+						console.log(allprice)
+					}
+					$(".AlltotalPrices").html(allprice);
+				})
+				var _length = oBCookie.list;
+				for(var i=0; i<_length.length; i++){
+					if(_length[i].name == $(this).parent().siblings().eq(1).children().html()){
+						_length.splice(i,1);
+						break;
+					}
+				}
+				var str = JSON.stringify(_length);
+				var hh = str.substring(1,str.length-1);
+				oBCookie.list = [];
+				if(hh!=""){
+					var obj = JSON.parse(hh);
+					oBCookie.list.push(obj);
+				}
+				var newStr=JSON.stringify(oBCookie);
+				cookieUtil.setCookie(cookieName,newStr,7);
+			})
+			//全部删除
+			$(".alldel").click(function(){
+				$("tbody tr").remove();
+				oBCookie.list = [];
+				var newStr = JSON.stringify(oBCookie);
+				cookieUtil.setCookie(cookieName,newStr,7)
+			})
+		</script>
+	</body>
+</html>

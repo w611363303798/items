@@ -1,0 +1,244 @@
+
+.container{
+	margin: 0 auto;
+	width: 1190px;
+}
+
+/*login*/
+#login{
+	height: 479px;
+}
+#login .loginbanner{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	height: 479px;
+	width: 100%;
+}
+#login .loginbanner ul{
+	position: relative;
+	height: 480px;
+}
+#login .loginbanner li{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 480px;
+	width: 100%;
+	background: url(../image/login-banner.jpg) 50% 0 no-repeat rgb(51, 0, 204);
+}
+#login .loginbanner a{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+#login .login-content{
+	background: #fff;
+	width: 350px;
+	padding-bottom: 25px;
+	overflow: hidden;
+	right: 0;
+	top: 40px;
+	position: absolute;
+}
+#login .new-user{
+	float: right;
+	margin-right: 5px;
+	margin-top: 5px;
+	font-size: 12px;
+}
+#login .new-user i{
+	display: inline-block;
+	line-height: 10px;
+	text-align: center;
+	margin-right: 5px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	color: #fff;
+	background: #0979E9;
+}
+#login .login-content ul{
+	border-bottom: 2px solid #f2f2f2;
+	font-size: 16px;
+	height: 35px;
+}
+#login .login-content ul li{
+	float: left;
+	margin-bottom: 0;
+	position: relative;
+	top: 1px;
+	height: 35px;
+}
+#login .login-content ul li a{
+	border: 0;
+	background: #fff;
+	z-index: 50;
+	padding: 3px 0;
+	margin: 0 15px;
+	display: block;
+	height: 22px;
+}
+#login .login-content ul li a.click{
+	color: #0979E9;
+	border-bottom: 2px solid #0979E9;
+	padding: 5px 15px 6px;
+	cursor: default;
+}
+#login .login-content .tab-content .loginerror{
+	position: absolute;
+	top: -6px;
+	left: 35px;
+	z-index: 102;
+	background: #fffdee;
+	border: 1px solid #edd28b;
+	height: 32px;
+	line-height: 2.45;
+	width: 280px;
+	font-size: 12px;
+}
+#login .login-content .tab-content .loginerror .loginerroricon{
+	color: red;
+	font-size: 18px;
+	vertical-align: top;
+	margin: 5px 10px 0 20px;
+	font-family: 'Glyphicons Halflings';
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	font-style: normal;
+	line-height: 18px;
+	color: #fff;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: red;
+	text-align: center;
+	font-weight: 900;
+}
+#login .login-content .tab-content .loginerror span{
+	color: red;
+}
+#login .login-content .tab-content .tab-pane{
+	display: none;
+}
+#login .login-content .tab-content form{
+	padding: 25px 35px 0 35px;
+}
+#login .login-content .tab-content form .form-group{
+	margin-bottom: 15px;
+}
+#login .login-content .tab-content form .form-group input{
+	height: 26px;
+	border: 1px solid #e4e4e4;
+	padding: 4px 6px 4px 45px;
+	width: 227px;
+}
+#login .login-content .tab-content form .form-group .ipt-icon{
+	display: inline-block;
+	width: 26px;
+	height: 36px;
+	margin: 0 5px;
+	position: absolute;
+	left: 5px;
+	top: 0;
+}
+#login .login-content .tab-content form .form-group .unameicon{
+	background: url(../image/iconlist.png) -155px -20px no-repeat;
+}
+#login .login-content .tab-content form .form-group .pwdicon{
+	background: url(../image/iconlist.png) -184px -20px no-repeat;
+}
+#login .login-content .tab-content form .form-group label{
+	line-height: 20px;
+}
+#login .login-content .tab-content form .form-group .default-link{
+	float: right;
+	margin-top: 2px;
+}
+#login .login-content .tab-content form .form-group #remembermeBtn{
+	width: 14px;
+	height: 14px;
+	background: #fff;
+	border: 0;
+	margin: 0;
+	vertical-align: middle;
+}
+#login .login-content .tab-content form .form-group .btn{
+	width: 100%;
+	color: #fff;
+	background: #0979E9;
+	display: inline-block;
+	margin-bottom: 0;
+	text-align: center;
+	padding: 4px 13px 5px;
+	line-height: 1.42;
+	border: 0;
+	font-size: 16px;
+	font-weight: 900;
+	cursor: pointer;
+}
+#login .login-content .tab-content form .form-group .btn:hover{
+	opacity: .75;
+}
+#login .login-content .tab-content form .phonelogincode input{
+	width: 147px;
+	padding: 4px 6px 4px 15px;
+	border: 1px solid #E4E4E4;
+	height: 26px;
+}
+#login .login-content .tab-content form .phonelogincode .code{
+	position: absolute;
+	right: 0;
+	top: 0;
+	color: blue;
+	font-size: 22px;
+	font-style: oblique;
+	line-height: 38px;
+	z-index: 1;
+	background: #f2f2f2;
+	width: 100px;
+	height: 38px;
+	cursor: pointer;
+	text-align: center;
+	overflow: hidden;
+}
+#login .login-content .tab-content form .phonelogincode .dynamicpw{
+	width: 100px;
+	height: 36px;
+	background: #bcdcff;
+	border-radius: 3px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	line-height: 36px;
+	text-align: center;
+	color: #0979E9;
+	cursor: pointer;
+}
+#login .login-content .tab-content .otherlogin{
+	color: #999;
+	font-size: 14px;
+	margin-top: 25px;
+	margin-left: 35px;
+}
+#login .login-content .tab-content .otherlogin .login-qq i,.login-wx i{
+	display: inline-block;
+	height: 22px;
+	margin-left: 5px;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+#login .login-content .tab-content .otherlogin .login-qq i{
+	background: url(../image/iconlist.png) -33px -90px no-repeat;
+	width: 22px;
+}
+#login .login-content .tab-content .otherlogin .login-wx i{
+	background: url(../image/iconlist.png) -33px -119px no-repeat;
+	width: 25px;
+}
+
+
+
+

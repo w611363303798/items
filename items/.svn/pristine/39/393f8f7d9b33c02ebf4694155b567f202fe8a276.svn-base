@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商品详情</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/particulars.css"/>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cookieUtil.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.elevatezoom.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--header-->
+		<div id="header">
+			<div id="header-top">
+				<div class="_left">
+					<span class="welcome">您好，欢迎来到云汉芯城</span>
+					<ul class="login">
+						<li><a href="#" class="theme-link">请登录</a></li>
+						<li><span class="headline">|</span></li>
+						<li><a href="#" class="theme-link">免费注册</a></li>
+					</ul>
+				</div>
+				<div class="_right">
+					<ul>
+						<li class="vip">
+							<span>
+								<i class="icon-member"></i>
+								<a href="#" class="theme-link">会员中心&ensp;</a>
+								<i class="icon-jt"></i>
+							</span>
+							<div class="minicenter">
+								<div class="minicentercon">
+									<p>
+										<span class="theme-link">您好</span>
+										<a href="#" class="theme-link">请登录</a>
+									</p>
+									<ul>
+										<li><a href="#">我的订单</a></li>
+										<li class="headline">|</li>
+										<li><a href="#">询价管理</a></li>
+										<br/>
+										<li><a href="#">优惠券</a></li>
+										<li class="headline">|</li>
+										<li><a href="#">售后管理</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li><span class="headline">|</li>
+						<li class="qqkf">
+							<span>
+								<i class="icon-qq"></i>
+								<a href="#">
+									在线客服 ：4008626630
+								</a>
+							</span>
+						</li>
+						<li><span class="headline">|</li>
+						<li class="call-center">
+							<span>
+								<i class="icon-call"></i>
+								客服中心 ：400-862-6630
+							</span>
+						</li>
+						<li><label class="headline">|</li>
+						<li class="servicetime">服务时间：9:00-18:00</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--ad-->
+		<div id="ad">
+			<div id="adcon">
+				<a href="#">
+					<img src="image/ad.jpg" alt=""/>
+				</a>
+				<span>×</span>
+			</div>
+		</div>
+		<!--log-->
+		<div id="log">
+			<div id="logcon">
+				<h1>
+					<a href="index.html"><img src="image/logo.png" alt="ickey"/></a>
+				</h1>
+				<div class="search">
+					<form action="" method="get">
+						<div class="searchtxt">
+							<input type="text" class="searchmodel" value="" placeholder="请输入搜索型号"/>
+							<input type="text" class="searchnum" value="" placeholder="请输入采购数量"/>
+							<input type="button" class="searchbtn" value="搜 索" />
+						</div>
+						<div class="searchtip">
+							<div class="_left">
+								<a href="#">树莓派</a>
+								<a href="#" style="color: #f00;">VISHAY特价</a>
+								<a href="#">热点库存</a>
+								<a href="#">铝电解电容</a>
+								<a href="#">Intel专区</a>
+							</div>
+							<div class="_right">
+								<input type="checkbox" name="" id="spot" value="" />
+								<label for="spot">现货</label>
+								<input type="checkbox" name="" id="accur" value="" />
+								<label for="accur">精准搜索</label>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="buycar">
+					<div class="buycarcon">
+						<span>
+							<i class="cart-count">0</i>
+							<a href="buycar.html">我的购物车</a>
+						</span>
+						<div class="minicarmenu">
+							<div class="minicarmenucon">您的购物车为空！请先选择您要购买的型号。</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--nav-->
+		<div id="nav">
+			<div id="navcon">
+				<div class="navall">
+					<h2>全部分类</h2>
+					<div class="menunav">
+						<ul style="margin-top: 1px;">
+							<li>
+								<a href="#" class="navlink">被动器件</a>
+								<b>&gt;</b>
+								<div class="secMenu">
+									<div class="entity-main">
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">电容</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">纸质电容</a>
+												<a href="#">阵列电容</a>
+												<a href="#">云母电容</a>
+												<a href="#">高分子电容</a>
+												<a href="#">可调电容</a>
+												<a href="#">贴片电容</a>
+												<a href="#">钽电容</a>
+												<a href="#" style="color: red;">薄膜电容</a>
+												<a href="#" class="more">更多</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">电阻</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">碳膜电阻</a>
+												<a href="#">薄膜电阻</a>
+												<a href="#">水泥电阻</a>
+												<a href="#">绕线电阻</a>
+												<a href="#">通孔电阻</a>
+												<a href="#" style="color: red;">金属膜电阻</a>
+												<a href="#">网络排阻</a>
+												<a href="#">贴片电阻</a>
+												<a href="#" class="more">更多</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">晶振</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">有源晶振</a>
+												<a href="#">无源晶振</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">电感</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">非屏蔽电感</a>
+												<a href="#">屏蔽电感</a>
+												<a href="#" style="color: red;">贴片电感</a>
+												<a href="#">插件式电感</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">电位器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#" style="color: red;">微调电位器</a>
+												<a href="#">滑动式电位器</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">磁性材料</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">磁环</a>
+												<a href="#">磁芯</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">保护器件</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">保险丝</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="typelogo">
+											<div class="f1">
+												<a href="#"><img src="image/nav1f1.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav1f2.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav1f3.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav1f4.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav1f5.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav1f6.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav1f7.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav1f8.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav1f9.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav1f10.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav1f11.jpg"/></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="navlink">开发工具</a>
+								<b>&gt;</b>
+								<div class="secMenu">
+									<div class="entity-main">
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">树莓派/arduin o/机器人</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#" style="color:red">树莓派系列</a>
+												<a href="#">ARDUINO系列</a>
+												<a href="#">雪蕉派</a>
+												<a href="#">机器人系列</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">开发板</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">Inter RealSens...</a>
+												<a href="#">Inter专区</a>
+												<a href="#">Infineon专区</a>
+												<a href="#">NXP专区</a>
+												<a href="#">DSP开发板</a>
+												<a href="#">Cortex-x开发板</a>
+												<a href="#">Cortex-M开发板</a>
+												<a href="#">ARM9开发板</a>
+												<a href="#" class="more">更多</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">调试/仿真/烧录器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">单片机系列</a>
+												<a href="#">ARM系列</a>
+												<a href="#">FPGA系列</a>
+												<a href="#">DSP系列</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">外设模块</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">无线射频模块</a>
+												<a href="#" style="color: red;>IGBT模块</a>
+												<a href="#"">显示屏</a>
+												<a href="#">工业风扇</a>
+												<a href="#">防雷器</a>
+												<a href="#">存储设备</a>
+												<a href="#">传感器模块</a>
+												<a href="#">转接口模块</a>
+												<a href="#" class="more">更多</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">电源</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">RECOM POWE...</a>
+												<a href="#">Emerson电源</a>
+												<a href="#" style="color: red;">Artesyn电源</a>
+												<a href="#">Astec电源</a>
+												<a href="#">MURATA电源</a>
+												<a href="#">VICOR电源</a>
+												<a href="#" style="color: red;">Cosel电源</a>
+												<a href="#">TRACO电源</a>
+												<a href="#" class="more">更多</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">焊接工具</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">热风台</a>
+												<a href="#">维修台</a>
+												<a href="#">焊台</a>
+												<a href="#">热风枪</a>
+												<a href="#">锡炉</a>
+												<a href="#">电烙铁</a>
+												<a href="#">焊锡</a>
+												<a href="#">热熔枪</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">五金工具</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">专业套装</a>
+												<a href="#">螺丝批系列</a>
+												<a href="#">钳类工具</a>
+												<a href="#">扳手系列</a>
+												<a href="#">敲击工具</a>
+												<a href="#">切割工具</a>
+												<a href="#">六角匙</a>
+												<a href="#">套筒</a>
+												<a href="#" class="more">更多</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="typelogo">
+											<div class="f1">
+												<a href="#"><img src="image/nav2f1.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav2f2.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav2f3.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav2f4.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav2f5.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav2f6.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav2f7.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav2f8.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav2f9.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav2f10.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav2f11.jpg"/></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="navlink">连接器</a>
+								<b>&gt;</b>
+								<div class="secMenu">
+									<div class="entity-main">
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">连接器/接插件组件</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#" style="color: red;">背板连接器</a>
+												<a href="#" style="color: red;">板对板连接器</a>
+												<a href="#" style="color: red;">线对板连接器</a>
+												<a href="#" style="color: red;">线对线连接器</a>
+												<a href="#">FFC/FPC连接器</a>
+												<a href="#">CPU/卡和插座...</a>
+												<a href="#">信号连接器</a>
+												<a href="#">RF与同轴连接器</a>
+												<a href="#" class="more">更多</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">开关</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">开关旋钮</a>
+												<a href="#">按钮</a>
+												<a href="#">旋转</a>
+												<a href="#">键锁</a>
+												<a href="#">微动</a>
+												<a href="#">DIP/SIP</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">天线</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">RF射频天线</a>
+												<a href="#">信号接收器</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">应用工具</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">压接工具</a>
+												<a href="#">辅助工具</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">继电器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#" style="color: red;">继电器</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">热缩管</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">热缩管</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="typelogo">
+											<div class="f1">
+												<a href="#"><img src="image/nav3f1.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav3f2.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav3f3.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav3f4.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav3f5.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav3f6.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav3f7.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav3f8.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav3f9.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav3f10.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav3f11.jpg"/></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="navlink">仪器仪表</a>
+								<b>&gt;</b>
+								<div class="secMenu">
+									<div class="entity-main">
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">电子测量仪器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">电容测量仪</a>
+												<a href="#">探头</a>
+												<a href="#">电源转换器</a>
+												<a href="#">设备电源</a>
+												<a href="#">示波器</a>
+												<a href="#">万用表</a>
+												<a href="#">频谱仪</a>
+												<a href="#">电子负载</a>
+												<a href="#" class="more">更多</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">电子测量仪器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">设备校正仪</a>
+												<a href="#">模拟器</a>
+												<a href="#">测距仪</a>
+												<a href="#">数据记录仪</a>
+												<a href="#">钳形表</a>
+												<a href="#">相序表</a>
+												<a href="#">测线仪</a>
+												<a href="#">功率测量仪</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">环境测量仪器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">温度计</a>
+												<a href="#">温度测量仪</a>
+												<a href="#">湿度测量仪</a>
+												<a href="#">风速测量仪</a>
+												<a href="#">噪声测量仪</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">光学检测仪器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">光照测量仪</a>
+												<a href="#">照度计</a>
+												<a href="#">红外成像仪</a>
+												<a href="#">放大镜</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">力学检测仪器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">测振仪</a>
+												<a href="#">压力测量仪</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">气体检测仪器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">气体检测仪</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">自动化设备</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">其他自动化设备</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">量具</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">计时器</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="typelogo">
+											<div class="f1">
+												<a href="#"><img src="image/nav4f1.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav4f2.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav4f3.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav4f4.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav4f5.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav4f6.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav4f7.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav4f8.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav4f9.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav4f10.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav4f11.jpg"/></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="navlink" style="padding: 9px 0 9px 17px;width:149px">微控制器/微处理器</a>
+								<b>&gt;</b>
+								<div class="secMenu">
+									<div class="entity-main">
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">微处理器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#" style="color: red;">INTEL 微处理器</a>
+												<a href="#">微处理器</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">FPGA/CPLD可编辑逻辑器件</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">FPGA/CPLD可...</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">DSP 数字处理器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">DSP 数字处理器</a>
+												<a href="#">无源晶振</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="typelogo">
+											<div class="f1">
+												<a href="#"><img src="image/nav5f1.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f2.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f3.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f4.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f5.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f6.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f7.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f8.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f9.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav5f10.jpg"/></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="navlink">电源管理</a>
+								<b>&gt;</b>
+								<div class="secMenu">
+									<div class="entity-main">
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">控制芯片</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">控制芯片</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">通用芯片</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">通用芯片</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="typelogo">
+											<div class="f1">
+												<a href="#"><img src="image/nav5f1.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f2.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f3.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f4.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f5.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f6.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f7.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f8.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f9.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav5f10.jpg"/></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="navlink">二三极管</a>
+								<b>&gt;</b>
+								<div class="secMenu">
+									<div class="entity-main">
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">开关二极管</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">开关二极管</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">三极管</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">三极管</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">MOSFET</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">MOSFET</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">稳压二极管</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">稳压二极管</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">肖特基二极管</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">肖特基二极管</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">通用二极管</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">通用二极管</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">整流二极管</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">整流二极管</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">可控硅</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">可控硅</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="typelogo">
+											<div class="f1">
+												<a href="#"><img src="image/nav5f1.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f2.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f3.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f4.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f5.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f6.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f7.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f8.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f9.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav5f10.jpg"/></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="navlink">信号链</a>
+								<b>&gt;</b>
+								<div class="secMenu">
+									<div class="entity-main">
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">数模转换</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">数模转换</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">运放</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">运放</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">数字隔离</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">数字隔离</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="typelogo">
+											<div class="f1">
+												<a href="#"><img src="image/nav5f1.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f2.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f3.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f4.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f5.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f6.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f7.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f8.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f9.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav5f10.jpg"/></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="navlink">储存器</a>
+								<b>&gt;</b>
+								<div class="secMenu">
+									<div class="entity-main">
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">FRAM</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">FRAM</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">SDRAM/DRAM</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">SDRAM/DRAM</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">EEPROM</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">EEPROM</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">FLASH</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">FLASH</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="typelogo">
+											<div class="f1">
+												<a href="#"><img src="image/nav5f1.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f2.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f3.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f4.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f5.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f6.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f7.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f8.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f9.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav5f10.jpg"/></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="navlink">传感器</a>
+								<b>&gt;</b>
+								<div class="secMenu">
+									<div class="entity-main">
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">压力传感器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">压力传感器</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">温度传感器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">温度传感器</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">湿度传感器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">湿度传感器</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">位置传感器</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">位置传感器</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="typelogo">
+											<div class="f1">
+												<a href="#"><img src="image/nav5f1.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f2.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f3.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f4.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f5.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f6.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f7.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f8.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f9.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav5f10.jpg"/></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="navlink">光电器件</a>
+								<b>&gt;</b>
+								<div class="secMenu">
+									<div class="entity-main">
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">光耦</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">光耦</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="entity-list">
+											<div class="dt">
+												<a href="#">其他</a>
+												<i>&gt;</i>
+											</div>
+											<div class="dd">
+												<a href="#">其他</a>
+											</div>
+											<span class="line"></span>
+										</div>
+										<div class="typelogo">
+											<div class="f1">
+												<a href="#"><img src="image/nav5f1.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f2.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f3.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f4.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f5.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f6.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f7.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f8.jpg"/></a>
+											</div>
+											<div class="f1">
+												<a href="#"><img src="image/nav5f9.jpg"/></a>
+											</div>
+											<div class="f2">
+												<a href="#"><img src="image/nav5f10.jpg"/></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="navbar">
+					<ul>
+						<li>
+							<a href="#">库存寄售服务</a>
+						</li>
+						<li>
+							<a href="#">开发工具商城</a>
+						</li>
+						<li>
+							<a href="#">PCB服务</a>
+						</li>
+						<li>
+							<a href="#">元器件数据服务</a>
+						</li>
+						<li>
+							<a href="#">品牌专区</a>
+						</li>
+					</ul>
+				</div>
+				<div class="bd">
+					<a href="#"><img src="image/iphone7.gif"/></a>
+				</div>
+			</div>
+		</div>
+		<!--container-->
+		<div id="container">
+			<ol>
+				<li><a href="#">首页</a></li>
+				<li>&gt; EWHOJM221D12OT</li>
+			</ol>
+			<div class="clearfix">
+				<div class="rel priceL">
+					<div class="detail-img">
+						<img id="zoom" src="image/smalllbt2.png" data-zoom-image="image/biglbt2.jpg"/>
+					</div>
+					<div class="rel share">
+						<span class="shareicon"><a href="javascript:;">分享</a></span>
+						<div class="bsPanel">
+							<div class="bsTitle">
+								<a href="#" style="float: left">分享到...</a>
+								<a href="javascript:;" style="float: right">X</a>
+							</div>
+							<div class="padding-left:8px;background:#fff;height:88px">
+								<div style="height: 47px;border-bottom: 1px #ccc solid;padding: 4px 0 4px 16px;margin-right: 8px;">
+									<div class="bsRlogo">
+										<a href="#">
+											<img src="image/qqmb.gif"/>
+										</a>
+									</div>
+									<div class="bsRlogo">
+										<a href="#">
+											<img src="image/qqmb.gif"/>
+										</a>
+									</div>
+									<div class="bsRlogo">
+										<a href="#">
+											<img src="image/qqmb.gif"/>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="bsLogoLink">
+								<a href="#">微信</a>
+							</div>
+							<div class="bsLogoLink">
+								<a href="#">微信</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="rel priceC">
+					<div class="rel mlr15">
+						<div class="detail-infos l-2em">
+							<h3>ELH2TM221050KT</h3>
+							<dl style="margin-top:20px">
+								<dt>供应商：</dt>
+								<dd id="suppliers">
+									<a href="javascript:;">云汉芯城</a>
+								</dd>
+							</dl>
+							<div class="info-items l-2em">
+								<span>
+									最小起订
+									<em class="num">100</em>
+								</span><span>
+									库存
+									<em class="stress maxnum">100</em>PCS
+								</span><span>
+									货期
+									<em class="time">2-4周</em>
+								</span>
+							</div>
+						</div>
+						<div class="detail-opera l-2em">
+							<div class="ship-to">
+								<div>
+									<span>交货地：</span>
+									<input type="radio" checked="checked" id="radio-home"/>
+									<label for="radio-home">国内</label>
+								</div>
+								<div class="mt5">
+									<div class="col-md">
+										<label>单价</label>
+										<span class="vm stress">¥<em id="univalent">12.5</em></span>
+									</div>
+									<div class="col-md">
+										<label>数量：</label>
+										<div class="counter">
+											<span id="inputNumDown">-</span>
+											<input type="text" id="inputNum" value="100" />
+											<span id="inputNumUp">+</span>
+											<span id="counterLimit" style="display: none;">
+												库存数：</br>100
+											</span>
+										</div>
+									</div>
+									<div class="col-md">
+										<label>合计：</label>
+										<span class="stress red" style="font-weight: 900;">¥<em id="univalent">1250.00</em></span>
+									</div>
+								</div>
+							</div>
+							<div class="add-cart rel">
+								<button class="btn">加入购物车</button>
+								<a href="#">询价</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="rel priceR">
+					<table width="100%">
+						<thead>
+							<tr>
+								<th width="40%">数量</th>
+								<th>国内(含税17%)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>100</td>
+								<td>¥12.5</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="mt20">
+				<div class="w100">
+					<div class="nav-tabs">
+						<span><a href="javascript:;">产品详情</a></span>
+					</div>
+					<div class="tab-content l-2em">
+						<div class="tab-pane">
+							<div>商品名称：ELH2TM221050KT</div>
+							<div class="mt5 table">
+								<div class="pro-table-tit w116">供应商型号：</div>
+								<div class="w242">9-ELH2TM221050KT</div>
+								<div class="pro-table-tit w116 w116">制造商型号：</div>
+								<div class="w242">ELH2TM221050KT</div>
+								<div class="pro-table-tit w92">制造商：</div>
+								<div class="w207">AISHI</div>
+								<div class="pro-table-tit w116">供应商型号：</div>
+								<div class="w242">9-EWHOJM221D12OT</div>
+								<div class="pro-table-tit w116 w116">制造商型号：</div>
+								<div class="w242">EWHOJM221D12OT</div>
+								<div class="pro-table-tit w92">制造商：</div>
+								<div class="w207">AISHI</div>
+								<div class="pro-table-tit w116">产品说明</div>
+								<div class="w987">电压(V)：6.3容量(uf)：220尺寸：6.3*11</div>
+								<div class="pro-table-tit w116">供应商型号：</div>
+								<div class="w242">9-EWHOJM221D12OT</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mt20">
+				
+			</div>
+		</div>
+		<!--container-fluid-->
+		<div id="container-fluid">
+		</div>
+		<!--footer-->
+		<div id="footer">
+			<div class="footer-fastlink">
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul style="border-right: 0;">
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-address">
+				<p>
+	            	地址：上海市漕河泾松江新兴产业园32号11层（莘砖公路258号）　客服热线：400-862-6630 (9:00-18:00) 　投诉电话：021-64821936-9120
+	        	</p>
+	        	<p style="margin-top: 10px;">© 2016 www.ickey.cn 　沪ICP备10202707号</p>
+			</div>
+			<div class="footer-logo">
+				<span><a href="#" class="logo_alipay"></a></span>
+				<span><a href="#" class="logo_tenpay"></a></span>
+				<span><a href="#" class="logo_unionpay"></a></span>
+				<span><a href="#" class="logo_ups"></a></span>
+				<span><a href="#" class="logo_fedex"></a></span>
+				<span><a href="#" class="logo_sfexpress"></a></span>
+				<span><a href="#" class="logo_gsj"></a></span>
+			</div>
+		</div>
+		<!--右侧栏-->
+		<div id="navtoolbar">
+			<div class="bottomtoolbar">
+				<a href="javascript:;"><img src="image/gotop.png"/></a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//登录中心显示隐藏
+			$(".vip").mouseover(function(){
+				$(this).css("background","#fff");
+				$(".minicenter").css("display","block")
+			})
+			$(".vip").mouseout(function(){
+				$(this).css("background","");
+				$(".minicenter").css("display","none")
+			})
+			//移除top广告
+			$("#adcon > span").click(function(){
+				$(this).parent().parent().remove();
+			})
+			//购物车显示隐藏
+			$(".buycarcon").mouseover(function(){
+				$(".minicarmenu").css("display","block")
+			})
+			$(".buycarcon").children().mouseout(function(){
+				$(".minicarmenu").css("display","none")
+			})
+			//二级菜单
+			$(".navall").mouseover(function(){
+				$(".menunav").css("display","block")
+			})
+			$(".navall").mouseout(function(){
+				$(".menunav").css("display","none")
+			})
+			$(".menunav ul:first-child").children("li").mouseover(function(){
+				$(this).children("div").show().end().find("b").css("color","#0979e9");
+				$(this).css("background","#fff").find(".navlink").css("color","#0979e9").end()
+				.siblings().css("background","").find(".navlink").css("color","#fff").end();
+				$(this).siblings().children("div").hide().parent().find("b").css("color","#fff")
+				
+			})
+			$(".menunav ul:first-child").children("li").mouseout(function(){
+				$(this).css("background","").find(".navlink").css("color","#fff");
+				$(this).find(".secMenu").hide().parent().find("b").css("color","#fff");
+			})
+			//回到顶部
+			if($(document).scrollTop()>=500){
+				$(".bottomtoolbar a").show();
+			}else{
+				$(".bottomtoolbar a").hide();
+			}
+			$(".bottomtoolbar a").click(function(){
+				$("body,html").animate({scrollTop:0},1000)
+			})
+			//顶部悬浮
+			if($(document).scrollTop()>=120){
+				$("#log").css({"position":"fixed","top":"0","zIndex":"1000","height":"92px","paddingTop":"0","borderBottom":"1px solid #ddd"})
+			}else{
+				$("#log").css({"position":"","zIndex":"","borderBottom":"","height":"102px","paddingTop":"10px","display":"block"})
+			}
+			//分享
+			$(".share").mouseover(function(){
+				$(".bsPanel").css("display","block")
+			})
+			$(".share").mouseout(function(){
+				$(".bsPanel").css("display","none")
+			})
+			//数量增减
+			$("#inputNumDown").click(function(){
+				var msg = $("#inputNum").val();
+				msg--;
+				$("#inputNum").val(msg);
+				if(parseInt($("#inputNum").val())<parseInt($(".info-items .num").html())){
+					$("#counterLimit").css("display","block").html("最小起订为:"+$(".info-items .num").html());
+				}else if(parseInt($("#inputNum").val())>parseInt($(".info-items .stress").html())){
+					$("#counterLimit").css("display","block").html("库存数:"+$(".info-items .stress").html());
+				}else{
+					$("#counterLimit").css("display","none")
+				}
+			})
+			$("#inputNumUp").click(function(){
+				var msg = $("#inputNum").val();
+				msg++;
+				$("#inputNum").val(msg);
+				if(parseInt($("#inputNum").val())<parseInt($(".info-items .num").html())){
+					$("#counterLimit").css("display","block").html("最小起订为:"+$(".info-items .num").html());
+				}else if(parseInt($("#inputNum").val())>parseInt($(".info-items .stress").html())){
+					$("#counterLimit").css("display","block").html("库存数:"+$(".info-items .stress").html());
+				}else{
+					$("#counterLimit").css("display","none")
+				}
+			})
+			$("#inputNum").blur(function(){
+				if(parseInt($(this).val())<parseInt($(".info-items .num").html())){
+					$("#counterLimit").css("display","block").html("最小起订为:"+$(".info-items .num").html());
+				}else if(parseInt($(this).val())>parseInt($(".info-items .stress").html())){
+					$("#counterLimit").css("display","block").html("库存数:"+$(".info-items .stress").html());
+				}else{
+					$("#counterLimit").css("display","none")
+				}
+			})
+			//setCookie
+			var cookieName="cartCookie";
+			var oProduct = {
+				name : $(".detail-infos h3").html(),
+				maxnum : $(".maxnum").html(),
+				minnum : $(".num").html(),
+				supplier : $("#suppliers a").html(),
+				time : $(".time").html(),
+				unitPrice : $("#univalent").html(),
+				totalPrices : Number($(".num").html()) * Number($("#univalent").html())
+			}
+			$(".btn").click(function(){
+			var day=new Date();
+			day.setDate(day.getDate()+7);
+			var obProductsOld={};
+			var cookieOld=getCookie(cookieName);
+			if(cookieOld.length>0){
+				obProductsOld=JSON.parse(cookieOld);
+				var flag=false;
+				for(var i=0;i<obProductsOld.list.length;i++){
+					if(obProductsOld.list[i].name==oProduct.name){
+						obProductsOld.list[i].minnum*2;
+						flag=true;
+					}
+				}
+				if(!flag){
+					obProductsOld.list.push(oProduct);
+				}
+			}else{
+				obProductsOld.list=[];
+				obProductsOld.list.push(oProduct);
+			}
+
+			var strProduct=JSON.stringify(obProductsOld);
+			document.cookie=cookieName+"="+encodeURIComponent(strProduct)+";expires="+day;
+			})
+			function getCookie(name){
+				var value="";
+				var strCookie=document.cookie;
+				var arrCookie=strCookie.split("; ");
+				for(var i=0;i<arrCookie.length;i++){
+					var arrItem=arrCookie[i].split("=");
+					if(arrItem[0]==name){
+						value=arrItem[1];
+					}
+				}
+				return decodeURIComponent(value);
+			}
+			$("#zoom").elevateZoom({ //鼠标滚动
+                scrollZoom: true //是否开启鼠标滚动
+            });
+		</script>
+	</body>
+</html>

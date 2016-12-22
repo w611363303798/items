@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/buycar.css"/>
+	</head>
+	<body>
+		<!--header-->
+		<div id="header">
+			<div id="header-top">
+				<div class="_left">
+					<span class="welcome">您好，欢迎来到云汉芯城</span>
+					<ul class="login">
+						<li><a href="#" class="theme-link">请登录</a></li>
+						<li><span class="headline">|</span></li>
+						<li><a href="#" class="theme-link">免费注册</a></li>
+					</ul>
+				</div>
+				<div class="_right">
+					<ul>
+						<li class="vip">
+							<span>
+								<i class="icon-member"></i>
+								<a href="#" class="theme-link">会员中心&ensp;</a>
+								<i class="icon-jt"></i>
+							</span>
+							<div class="minicenter">
+								<div class="minicentercon">
+									<p>
+										<span class="theme-link">您好</span>
+										<a href="#" class="theme-link">请登录</a>
+									</p>
+									<ul>
+										<li><a href="#">我的订单</a></li>
+										<li class="headline">|</li>
+										<li><a href="#">询价管理</a></li>
+										<br/>
+										<li><a href="#">优惠券</a></li>
+										<li class="headline">|</li>
+										<li><a href="#">售后管理</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li><span class="headline">|</li>
+						<li class="qqkf">
+							<span>
+								<i class="icon-qq"></i>
+								<a href="#">
+									在线客服 ：4008626630
+								</a>
+							</span>
+						</li>
+						<li><span class="headline">|</li>
+						<li class="call-center">
+							<span>
+								<i class="icon-call"></i>
+								客服中心 ：400-862-6630
+							</span>
+						</li>
+						<li><label class="headline">|</li>
+						<li class="servicetime">服务时间：9:00-18:00</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--log-->
+		<div id="log">
+			<div id="logcon">
+				<h1>
+					<a href="#"><img src="image/logo.png" alt="ickey"/></a>
+				</h1>
+				<span class="buy-car">购物车</span>
+				<img src="image/cart-step1.png"/ class="fr mt5">
+			</div>
+		</div>
+		<!--container-->
+		<div id="container" class="mt20">
+			<div class="cart-title rel">
+				<ul class="bar-tabs-cart">
+					<li><a href="#">国内交货</a></li>
+				</ul>
+				<div class="carriage">
+					<div class="carriage-free">
+						
+					</div>
+				</div>
+			</div>
+			<div class="tab-content">
+				
+			</div>
+		</div>
+		<!--footer-->
+		<div id="footer">
+			<div class="footer-fastlink">
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul>
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>购物指南</h4>
+					<ul style="border-right: 0;">
+						<li><a href="#">新手上路</a></li>
+						<li><a href="#">会员等级说明</a></li>
+						<li><a href="#">会员中心说明</a></li>
+						<li><a href="#">发票须知</a></li>
+						<li><a href="#">免责说明</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-address">
+				<p>
+	            	地址：上海市漕河泾松江新兴产业园32号11层（莘砖公路258号）　客服热线：400-862-6630 (9:00-18:00) 　投诉电话：021-64821936-9120
+	        	</p>
+	        	<p style="margin-top: 10px;">© 2016 www.ickey.cn 　沪ICP备10202707号</p>
+			</div>
+			<div class="footer-logo">
+				<span><a href="#" class="logo_alipay"></a></span>
+				<span><a href="#" class="logo_tenpay"></a></span>
+				<span><a href="#" class="logo_unionpay"></a></span>
+				<span><a href="#" class="logo_ups"></a></span>
+				<span><a href="#" class="logo_fedex"></a></span>
+				<span><a href="#" class="logo_sfexpress"></a></span>
+				<span><a href="#" class="logo_gsj"></a></span>
+			</div>
+		</div>
+		<!--右侧栏-->
+		<div id="navtoolbar">
+			<div class="bottomtoolbar">
+				<a href="javascript:;"><img src="image/gotop.png"/></a>
+			</div>
+		</div>
+	</body>
+</html>

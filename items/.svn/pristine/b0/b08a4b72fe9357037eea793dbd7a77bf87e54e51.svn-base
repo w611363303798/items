@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>register</title>
+		<link rel="stylesheet" type="text/css" href="css/logincommon.css"/>
+	</head>
+	<body>
+		<!--top-->
+		<div id="top" class="bg-f5">
+			<div id="topcon" class="ptb5">
+				<a href="#">收藏云汉芯城</a>
+				<ul>
+					<li>您好！欢迎来到ICkey!</li>
+					<li class="mlr5">|</li>
+					<a href="#">新手上路</a>
+				</ul>
+			</div>
+		</div>
+		<!--logo-->
+		<div id="logo" class="ptb10 clearfix">
+			<a href="index.html"><img src="image/logo.png"/></a>
+			<span class="welcome">欢迎登录</span>
+		</div>
+		<!--register-->
+		<div id="register">
+			
+		</div>
+		<!--bottom-->
+		<div id="footer">
+			<ul>
+				<li><a href="#">关于云汉芯城</a></li>
+				<li><a href="#">企业简介</a></li>
+				<li><a href="#">企业文化</a></li>
+				<li><a href="#">服务简介</a></li>
+				<li><a href="#">联系我们</a></li>
+				<li><a href="#">加入我们</a></li>
+			</ul>
+			<div class="footer-address">
+				<p>地址：上海市漕河泾松江新兴产业园32号11层（莘砖公路258号）　客服热线：400-862-6630 (9:00-18:00) 　投诉电话：021-64821936-9120</p>
+				<p class="mt10">© 2016 www.ickey.cn 　沪ICP备10202707号</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,3340 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>电子元器件采购平台,IC交易网-云汉芯城（ICkey）电子产业服务平台</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		onload = function(){
+			//登录中心显示隐藏
+			$(".vip").mouseover(function(){
+				$(this).css("background","#fff");
+				$(".minicenter").css("display","block")
+			})
+			$(".vip").mouseout(function(){
+				$(this).css("background","");
+				$(".minicenter").css("display","none")
+			})
+			//移除top广告
+			$("#adcon > span").click(function(){
+				$(this).parent().parent().remove();
+			})
+			//购物车显示隐藏
+			$(".buycarcon").mouseover(function(){
+				$(".minicarmenu").css("display","block")
+			})
+			$(".buycarcon").children().mouseout(function(){
+				$(".minicarmenu").css("display","none")
+			})
+			//二级菜单
+			$(".menunav ul:first-child").children("li").mouseover(function(){
+				$(this).children("div").show().end().find("b").css("color","#0979e9");
+				$(this).css("background","#fff").find(".navlink").css("color","#0979e9").end()
+				.siblings().css("background","").find(".navlink").css("color","#fff").end();
+				$(this).siblings().children("div").hide().parent().find("b").css("color","#fff")
+				
+			})
+			$(".menunav ul:first-child").children("li").mouseout(function(){
+				$(this).css("background","").find(".navlink").css("color","#fff");
+				$(this).find(".secMenu").hide().parent().find("b").css("color","#fff");
+			})
+			//banner图轮播,news轮播,产品banner轮播
+			var length1,length2,length3,
+			Index1 = Index2 = Index3 = Index4 = Index5 = 0,
+			interval1,interval2,interval3,interval4,interval5,
+			hasStarted1 = hasStarted2 = hasStarted3 = hasStarted4 = hasStarted5 = false,
+			t1 = 5500,t2 = 5000;
+			length1 = $(".photoList").children().length;
+			length2 = $(".expressCon").find("li").length;
+			length3 = $("#deveKits .deveKits-banner .bd li").length;
+			$("#linker .deveKits-banner .hd li:first").addClass("highlight");
+			$("#deveKits .deveKits-banner .hd li:first").addClass("highlight");
+			$("#device .deveKits-banner .hd li:first").addClass("highlight");
+			$(".pointList li:first").addClass("highlight");
+			$(".bannercon").mouseover(function(){
+				stop1();
+			})
+			$(".express").mouseover(function(){
+				stop2();
+			})
+			$("#deveKits .deveKits-banner .f1").mouseover(function(){
+				stop3();
+			})
+			$("#device .deveKits-banner .f1").mouseover(function(){
+				stop4();
+			})
+			$("#linker .deveKits-banner .f1").mouseover(function(){
+				stop5();
+			})
+			$(".bannercon").mouseout(function(){
+				start1();
+			})
+			$(".express").mouseout(function(){
+				start2();
+			})
+			$("#deveKits .deveKits-banner .f1").mouseout(function(){
+				start3();
+			})
+			$("#device .deveKits-banner .f1").mouseout(function(){
+				start4();
+			})
+			$("#linker .deveKits-banner .f1").mouseout(function(){
+				start5();
+			})
+			$(".pointList li").click(function(){//点哪张显示哪张
+				var preIndex = $(".pointList li").filter(".highlight").index();
+				Index1 = $(this).index();
+				play1(preIndex,Index1);
+			})
+			$("#deveKits .deveKits-banner .hd li").click(function(){
+				var preIndex = $("#deveKits .deveKits-banner .hd li").filter(".highlight").index();
+				Index3 = $(this).index();
+				play3(preIndex,Index3);
+			})
+			$("#device .deveKits-banner .hd li").click(function(){
+				var preIndex = $("#device .deveKits-banner .hd li").filter(".highlight").index();
+				Index4 = $(this).index();
+				play4(preIndex,Index4);
+			})
+			$("#linker .deveKits-banner .hd li").click(function(){
+				var preIndex = $("#linker .deveKits-banner .hd li").filter(".highlight").index();
+				Index5 = $(this).index();
+				play5(preIndex,Index5);
+			})
+			$(".icon-prev").click(function(){//点击显示上一个news
+				prev();
+			})
+			$(".icon-next").click(function(){//点击显示下一个news
+				next();
+			})
+			function start1(){//开始banner图轮播
+				if(!hasStarted1){
+					hasStarted1 = true;
+					interval1 = setInterval(function(){
+						var preIndex = Index1;
+						Index1 = ++Index1 % length1;
+						play1(preIndex,Index1);
+					},t1);
+				}
+			}
+			function start2(){//开始news轮播
+				if(!hasStarted2){
+					hasStarted2 = true;
+					interval2 = setInterval(next,t2)
+				}
+			}
+			function start3(){//开发工具banner轮播
+				if(!hasStarted3){
+					hasStarted3 = true;
+					interval3 = setInterval(function(){
+						var preIndex = Index3;
+						Index3 = ++Index3 % length3;
+						play3(preIndex,Index3);
+					},t1);
+				}
+			}
+			function start4(){//被动器材banner轮播
+				if(!hasStarted4){
+					hasStarted4 = true;
+					interval4 = setInterval(function(){
+						var preIndex = Index4;
+						Index4 = ++Index4 % length3;
+						play4(preIndex,Index4);
+					},t1);
+				}
+			}
+			function start5(){//连接器材banner轮播
+				if(!hasStarted5){
+					hasStarted5 = true;
+					interval5 = setInterval(function(){
+						var preIndex = Index5;
+						Index5 = ++Index5 % length3;
+						play5(preIndex,Index5);
+					},t1);
+				}
+			}
+			function prev(){//上一张
+				var preIndex = Index2;
+				Index2 = (--Index2 + length2) % length2;
+				play2(preIndex,Index2);
+			}
+			function next(){//下一张
+				var preIndex = Index2;
+				Index2 = ++Index2 % length2;
+				play2(preIndex,Index2);
+			}
+			function play1(preIndex,Index1){//图片淡入淡出，
+				$(".photoList").children().eq(preIndex).fadeOut(300)
+				.parent().children().eq(Index1).fadeIn(300);
+				$(".pointList li").removeClass("highlight");
+				$(".pointList li").eq(Index1).addClass("highlight")
+			}
+			function play2(preIndex,Index2){
+				$(".expressCon").find("li").eq(preIndex).fadeOut(300)
+				.parent().children().eq(Index2).fadeIn(300);
+			}
+			function play3(preIndex,Index3){
+				$("#deveKits .deveKits-banner .bd li").eq(preIndex).fadeOut(300)
+				.parent().children().eq(Index3).fadeIn(300);
+				$("#deveKits .deveKits-banner .hd li").removeClass("highlight");
+				$("#deveKits .deveKits-banner .hd li").eq(Index3).addClass("highlight")
+			}
+			function play4(preIndex,Index4){
+				$("#device .deveKits-banner .bd li").eq(preIndex).fadeOut(300)
+				.parent().children().eq(Index4).fadeIn(300);
+				$("#device .deveKits-banner .hd li").removeClass("highlight");
+				$("#device .deveKits-banner .hd li").eq(Index4).addClass("highlight")
+			}
+			function play5(preIndex,Index5){
+				$("#linker .deveKits-banner .bd li").eq(preIndex).fadeOut(300)
+				.parent().children().eq(Index4).fadeIn(300);
+				$("#linker .deveKits-banner .hd li").removeClass("highlight");
+				$("#linker .deveKits-banner .hd li").eq(Index5).addClass("highlight")
+			}
+			function stop1(){//停止banner轮播
+				clearInterval(interval1);
+				hasStarted1 = false;
+			}
+			function stop2(){//停止news轮播
+				clearInterval(interval2);
+				hasStarted2 = false;
+			}
+			function stop3(){//停止开发工具banner轮播
+				clearInterval(interval3);
+				hasStarted3 = false;
+			}
+			function stop4(){//停止被动器材banner轮播
+				clearInterval(interval4);
+				hasStarted4 = false;
+			}
+			function stop5(){//停止连接器材banner轮播
+				clearInterval(interval5);
+				hasStarted5 = false;
+			}
+			start1();//开始banner轮播
+			start2();//开始news轮播
+			start3();//开始开发工具banner轮播
+			start4();//开始被动器材banner轮播
+			start5();//开始连接器材banner轮播
+			//无缝轮播
+			$("#deveKits ._top span").mouseenter(function(){
+				$("#deveKits .develop").stop(false,true);
+				$(this).addClass("on").siblings().removeClass("on");
+				var $index = $(this).index();
+				$("#deveKits .develop").animate({left:$index*-890})
+			})
+			$("#device ._top span").mouseenter(function(){
+				$("#device .develop").stop(false,true);
+				$(this).addClass("on").siblings().removeClass("on");
+				var $index = $(this).index();
+				$("#device .develop").animate({left:$index*-890})
+			})
+			$("#linker ._top span").mouseenter(function(){
+				$("#linker .develop").stop(false,true);
+				$(this).addClass("on").siblings().removeClass("on");
+				var $index = $(this).index();
+				$("#linker .develop").animate({left:$index*-890})
+			})
+			//
+			$(".animicon").mouseenter(function(){
+				$(this).animate({right:3},150)
+			})
+			$(".animicon").mouseleave(function(){
+				$(this).animate({right:0},150)
+			})
+			//
+			$(".overseas-right a").mouseenter(function(){
+				$(this).css({"border":"1px solid #0979e9","zIndex":"10"})
+				.children("div").css("display","block")
+			})
+			$(".overseas-right a").mouseleave(function(){
+				$(this).css({"border":"1px solid #f2f2f2","zIndex":"0"})
+				.children("div").css("display","none")
+			})
+			$("#hot a").mouseenter(function(){
+				$(this).css({"border":"1px solid #0979e9","zIndex":"10"})
+				.children("div").css("display","block")
+			})
+			$("#hot a").mouseleave(function(){
+				$(this).css({"border":"1px solid #f2f2f2","zIndex":"0"})
+				.children("div").css("display","none")
+			})
+			//验证码
+			var oCode = getclassname4ie("code");
+			oCode[0].innerHTML = code(4);
+			oCode[0].onclick = function(){
+				oCode[0].innerHTML = code(4);
+			}
+			//楼梯
+			var _index = 0;
+			var isclick = false;
+			$("#stairs a").click(function(){
+				isclick = true;
+				_index = $(this).index();
+				var _top = $(".louti"+_index).offset().top;
+				$(this).addClass("f60").siblings().removeClass("f60");
+				$("body,html").animate({scrollTop:_top-100},500,function(){
+					isclick = false;
+				})
+			})
+			$(window).scroll(function(){//楼梯
+				if(!isclick){
+					if($(document).scrollTop()>=600){
+						$("#stairs").show();
+						var index = Math.floor($(document).scrollTop()/550);
+						$("#stairs a").eq(index-1).addClass("f60").siblings().removeClass("f60")
+					}else{
+						$("#stairs").hide();
+					}
+					//回到顶部
+					if($(document).scrollTop()>=500){
+						$(".bottomtoolbar a").show();
+					}else{
+						$(".bottomtoolbar a").hide();
+					}
+					//顶部悬浮
+					if($(document).scrollTop()>=120){
+						$("#log").css({"position":"fixed","top":"0","zIndex":"1000","height":"92px","paddingTop":"0","borderBottom":"1px solid #ddd"})
+					}else{
+						$("#log").css({"position":"","zIndex":"","borderBottom":"","height":"102px","paddingTop":"10px","display":"block"})
+					}
+				}
+			})
+			$(".bottomtoolbar a").click(function(){
+				$("body,html").animate({scrollTop:0},1000)
+			})
+		}
+	</script>
+</head>
+<body>
+	<!--header-->
+	<div id="header">
+		<div id="header-top">
+			<div class="_left">
+				<span class="welcome">您好，欢迎来到云汉芯城</span>
+				<ul class="login">
+					<li><a href="login.html" class="theme-link">请登录</a></li>
+					<li><span class="headline">|</span></li>
+					<li><a href="register.html" class="theme-link">免费注册</a></li>
+				</ul>
+			</div>
+			<div class="_right">
+				<ul>
+					<li class="vip">
+						<span>
+							<i class="icon-member"></i>
+							<a href="#" class="theme-link">会员中心&ensp;</a>
+							<i class="icon-jt"></i>
+						</span>
+						<div class="minicenter">
+							<div class="minicentercon">
+								<p>
+									<span class="theme-link">您好</span>
+									<a href="#" class="theme-link">请登录</a>
+								</p>
+								<ul>
+									<li><a href="#">我的订单</a></li>
+									<li class="headline">|</li>
+									<li><a href="#">询价管理</a></li>
+									<br/>
+									<li><a href="#">优惠券</a></li>
+									<li class="headline">|</li>
+									<li><a href="#">售后管理</a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li><span class="headline">|</li>
+					<li class="qqkf">
+						<span>
+							<i class="icon-qq"></i>
+							<a href="#">
+								在线客服 ：4008626630
+							</a>
+						</span>
+					</li>
+					<li><span class="headline">|</li>
+					<li class="call-center">
+						<span>
+							<i class="icon-call"></i>
+							客服中心 ：400-862-6630
+						</span>
+					</li>
+					<li><label class="headline">|</li>
+					<li class="servicetime">服务时间：9:00-18:00</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--ad-->
+	<div id="ad">
+		<div id="adcon">
+			<a href="#">
+				<img src="image/ad.jpg" alt=""/>
+			</a>
+			<span>×</span>
+		</div>
+	</div>
+	<!--log-->
+	<div id="log">
+		<div id="logcon">
+			<h1>
+				<a href="index.html"><img src="image/logo.png" alt="ickey"/></a>
+			</h1>
+			<div class="search">
+				<form action="" method="get">
+					<div class="searchtxt">
+						<input type="text" class="searchmodel" value="" placeholder="请输入搜索型号"/>
+						<input type="text" class="searchnum" value="" placeholder="请输入采购数量"/>
+						<input type="button" class="searchbtn" value="搜 索" />
+					</div>
+					<div class="searchtip">
+						<div class="_left">
+							<a href="#">树莓派</a>
+							<a href="#" style="color: #f00;">VISHAY特价</a>
+							<a href="#">热点库存</a>
+							<a href="#">铝电解电容</a>
+							<a href="#">Intel专区</a>
+						</div>
+						<div class="_right">
+							<input type="checkbox" name="" id="spot" value="" />
+							<label for="spot">现货</label>
+							<input type="checkbox" name="" id="accur" value="" />
+							<label for="accur">精准搜索</label>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="buycar">
+				<div class="buycarcon">
+					<span>
+						<i class="cart-count">0</i>
+						<a href="#">我的购物车</a>
+					</span>
+					<div class="minicarmenu">
+						<div class="minicarmenucon">您的购物车为空！请先选择您要购买的型号。</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--nav-->
+	<div id="nav">
+		<div id="navcon">
+			<div class="navall">
+				<h2>全部分类</h2>
+				<div class="menunav">
+					<ul style="margin-top: 1px;">
+						<li>
+							<a href="#" class="navlink">被动器件</a>
+							<b>&gt;</b>
+							<div class="secMenu">
+								<div class="entity-main">
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">电容</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">纸质电容</a>
+											<a href="#">阵列电容</a>
+											<a href="#">云母电容</a>
+											<a href="#">高分子电容</a>
+											<a href="#">可调电容</a>
+											<a href="#">贴片电容</a>
+											<a href="#">钽电容</a>
+											<a href="#" style="color: red;">薄膜电容</a>
+											<a href="#" class="more">更多</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">电阻</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">碳膜电阻</a>
+											<a href="#">薄膜电阻</a>
+											<a href="#">水泥电阻</a>
+											<a href="#">绕线电阻</a>
+											<a href="#">通孔电阻</a>
+											<a href="#" style="color: red;">金属膜电阻</a>
+											<a href="#">网络排阻</a>
+											<a href="#">贴片电阻</a>
+											<a href="#" class="more">更多</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">晶振</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">有源晶振</a>
+											<a href="#">无源晶振</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">电感</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">非屏蔽电感</a>
+											<a href="#">屏蔽电感</a>
+											<a href="#" style="color: red;">贴片电感</a>
+											<a href="#">插件式电感</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">电位器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#" style="color: red;">微调电位器</a>
+											<a href="#">滑动式电位器</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">磁性材料</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">磁环</a>
+											<a href="#">磁芯</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">保护器件</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">保险丝</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="typelogo">
+										<div class="f1">
+											<a href="#"><img src="image/nav1f1.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav1f2.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav1f3.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav1f4.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav1f5.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav1f6.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav1f7.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav1f8.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav1f9.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav1f10.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav1f11.jpg"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="navlink">开发工具</a>
+							<b>&gt;</b>
+							<div class="secMenu">
+								<div class="entity-main">
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">树莓派/arduin o/机器人</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#" style="color:red">树莓派系列</a>
+											<a href="#">ARDUINO系列</a>
+											<a href="#">雪蕉派</a>
+											<a href="#">机器人系列</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">开发板</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">Inter RealSens...</a>
+											<a href="#">Inter专区</a>
+											<a href="#">Infineon专区</a>
+											<a href="#">NXP专区</a>
+											<a href="#">DSP开发板</a>
+											<a href="#">Cortex-x开发板</a>
+											<a href="#">Cortex-M开发板</a>
+											<a href="#">ARM9开发板</a>
+											<a href="#" class="more">更多</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">调试/仿真/烧录器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">单片机系列</a>
+											<a href="#">ARM系列</a>
+											<a href="#">FPGA系列</a>
+											<a href="#">DSP系列</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">外设模块</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">无线射频模块</a>
+											<a href="#" style="color: red;>IGBT模块</a>
+											<a href="#"">显示屏</a>
+											<a href="#">工业风扇</a>
+											<a href="#">防雷器</a>
+											<a href="#">存储设备</a>
+											<a href="#">传感器模块</a>
+											<a href="#">转接口模块</a>
+											<a href="#" class="more">更多</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">电源</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">RECOM POWE...</a>
+											<a href="#">Emerson电源</a>
+											<a href="#" style="color: red;">Artesyn电源</a>
+											<a href="#">Astec电源</a>
+											<a href="#">MURATA电源</a>
+											<a href="#">VICOR电源</a>
+											<a href="#" style="color: red;">Cosel电源</a>
+											<a href="#">TRACO电源</a>
+											<a href="#" class="more">更多</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">焊接工具</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">热风台</a>
+											<a href="#">维修台</a>
+											<a href="#">焊台</a>
+											<a href="#">热风枪</a>
+											<a href="#">锡炉</a>
+											<a href="#">电烙铁</a>
+											<a href="#">焊锡</a>
+											<a href="#">热熔枪</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">五金工具</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">专业套装</a>
+											<a href="#">螺丝批系列</a>
+											<a href="#">钳类工具</a>
+											<a href="#">扳手系列</a>
+											<a href="#">敲击工具</a>
+											<a href="#">切割工具</a>
+											<a href="#">六角匙</a>
+											<a href="#">套筒</a>
+											<a href="#" class="more">更多</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="typelogo">
+										<div class="f1">
+											<a href="#"><img src="image/nav2f1.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav2f2.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav2f3.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav2f4.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav2f5.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav2f6.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav2f7.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav2f8.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav2f9.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav2f10.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav2f11.jpg"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="navlink">连接器</a>
+							<b>&gt;</b>
+							<div class="secMenu">
+								<div class="entity-main">
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">连接器/接插件组件</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#" style="color: red;">背板连接器</a>
+											<a href="#" style="color: red;">板对板连接器</a>
+											<a href="#" style="color: red;">线对板连接器</a>
+											<a href="#" style="color: red;">线对线连接器</a>
+											<a href="#">FFC/FPC连接器</a>
+											<a href="#">CPU/卡和插座...</a>
+											<a href="#">信号连接器</a>
+											<a href="#">RF与同轴连接器</a>
+											<a href="#" class="more">更多</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">开关</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">开关旋钮</a>
+											<a href="#">按钮</a>
+											<a href="#">旋转</a>
+											<a href="#">键锁</a>
+											<a href="#">微动</a>
+											<a href="#">DIP/SIP</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">天线</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">RF射频天线</a>
+											<a href="#">信号接收器</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">应用工具</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">压接工具</a>
+											<a href="#">辅助工具</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">继电器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#" style="color: red;">继电器</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">热缩管</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">热缩管</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="typelogo">
+										<div class="f1">
+											<a href="#"><img src="image/nav3f1.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav3f2.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav3f3.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav3f4.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav3f5.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav3f6.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav3f7.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav3f8.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav3f9.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav3f10.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav3f11.jpg"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="navlink">仪器仪表</a>
+							<b>&gt;</b>
+							<div class="secMenu">
+								<div class="entity-main">
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">电子测量仪器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">电容测量仪</a>
+											<a href="#">探头</a>
+											<a href="#">电源转换器</a>
+											<a href="#">设备电源</a>
+											<a href="#">示波器</a>
+											<a href="#">万用表</a>
+											<a href="#">频谱仪</a>
+											<a href="#">电子负载</a>
+											<a href="#" class="more">更多</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">电子测量仪器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">设备校正仪</a>
+											<a href="#">模拟器</a>
+											<a href="#">测距仪</a>
+											<a href="#">数据记录仪</a>
+											<a href="#">钳形表</a>
+											<a href="#">相序表</a>
+											<a href="#">测线仪</a>
+											<a href="#">功率测量仪</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">环境测量仪器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">温度计</a>
+											<a href="#">温度测量仪</a>
+											<a href="#">湿度测量仪</a>
+											<a href="#">风速测量仪</a>
+											<a href="#">噪声测量仪</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">光学检测仪器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">光照测量仪</a>
+											<a href="#">照度计</a>
+											<a href="#">红外成像仪</a>
+											<a href="#">放大镜</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">力学检测仪器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">测振仪</a>
+											<a href="#">压力测量仪</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">气体检测仪器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">气体检测仪</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">自动化设备</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">其他自动化设备</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">量具</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">计时器</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="typelogo">
+										<div class="f1">
+											<a href="#"><img src="image/nav4f1.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav4f2.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav4f3.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav4f4.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav4f5.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav4f6.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav4f7.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav4f8.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav4f9.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav4f10.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav4f11.jpg"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="navlink" style="padding: 9px 0 9px 17px;width:149px">微控制器/微处理器</a>
+							<b>&gt;</b>
+							<div class="secMenu">
+								<div class="entity-main">
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">微处理器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#" style="color: red;">INTEL 微处理器</a>
+											<a href="#">微处理器</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">FPGA/CPLD可编辑逻辑器件</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">FPGA/CPLD可...</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">DSP 数字处理器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">DSP 数字处理器</a>
+											<a href="#">无源晶振</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="typelogo">
+										<div class="f1">
+											<a href="#"><img src="image/nav5f1.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f2.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f3.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f4.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f5.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f6.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f7.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f8.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f9.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav5f10.jpg"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="navlink">电源管理</a>
+							<b>&gt;</b>
+							<div class="secMenu">
+								<div class="entity-main">
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">控制芯片</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">控制芯片</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">通用芯片</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">通用芯片</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="typelogo">
+										<div class="f1">
+											<a href="#"><img src="image/nav5f1.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f2.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f3.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f4.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f5.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f6.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f7.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f8.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f9.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav5f10.jpg"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="navlink">二三极管</a>
+							<b>&gt;</b>
+							<div class="secMenu">
+								<div class="entity-main">
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">开关二极管</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">开关二极管</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">三极管</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">三极管</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">MOSFET</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">MOSFET</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">稳压二极管</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">稳压二极管</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">肖特基二极管</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">肖特基二极管</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">通用二极管</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">通用二极管</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">整流二极管</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">整流二极管</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">可控硅</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">可控硅</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="typelogo">
+										<div class="f1">
+											<a href="#"><img src="image/nav5f1.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f2.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f3.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f4.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f5.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f6.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f7.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f8.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f9.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav5f10.jpg"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="navlink">信号链</a>
+							<b>&gt;</b>
+							<div class="secMenu">
+								<div class="entity-main">
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">数模转换</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">数模转换</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">运放</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">运放</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">数字隔离</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">数字隔离</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="typelogo">
+										<div class="f1">
+											<a href="#"><img src="image/nav5f1.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f2.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f3.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f4.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f5.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f6.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f7.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f8.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f9.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav5f10.jpg"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="navlink">储存器</a>
+							<b>&gt;</b>
+							<div class="secMenu">
+								<div class="entity-main">
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">FRAM</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">FRAM</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">SDRAM/DRAM</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">SDRAM/DRAM</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">EEPROM</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">EEPROM</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">FLASH</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">FLASH</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="typelogo">
+										<div class="f1">
+											<a href="#"><img src="image/nav5f1.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f2.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f3.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f4.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f5.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f6.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f7.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f8.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f9.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav5f10.jpg"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="navlink">传感器</a>
+							<b>&gt;</b>
+							<div class="secMenu">
+								<div class="entity-main">
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">压力传感器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">压力传感器</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">温度传感器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">温度传感器</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">湿度传感器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">湿度传感器</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">位置传感器</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">位置传感器</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="typelogo">
+										<div class="f1">
+											<a href="#"><img src="image/nav5f1.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f2.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f3.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f4.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f5.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f6.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f7.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f8.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f9.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav5f10.jpg"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="navlink">光电器件</a>
+							<b>&gt;</b>
+							<div class="secMenu">
+								<div class="entity-main">
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">光耦</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">光耦</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="entity-list">
+										<div class="dt">
+											<a href="#">其他</a>
+											<i>&gt;</i>
+										</div>
+										<div class="dd">
+											<a href="#">其他</a>
+										</div>
+										<span class="line"></span>
+									</div>
+									<div class="typelogo">
+										<div class="f1">
+											<a href="#"><img src="image/nav5f1.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f2.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f3.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f4.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f5.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f6.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f7.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f8.jpg"/></a>
+										</div>
+										<div class="f1">
+											<a href="#"><img src="image/nav5f9.jpg"/></a>
+										</div>
+										<div class="f2">
+											<a href="#"><img src="image/nav5f10.jpg"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="navbar">
+				<ul>
+					<li>
+						<a href="#">库存寄售服务</a>
+					</li>
+					<li>
+						<a href="#">开发工具商城</a>
+					</li>
+					<li>
+						<a href="#">PCB服务</a>
+					</li>
+					<li>
+						<a href="#">元器件数据服务</a>
+					</li>
+					<li>
+						<a href="#">品牌专区</a>
+					</li>
+				</ul>
+			</div>
+			<div class="bd">
+				<a href="#"><img src="image/iphone7.gif"/></a>
+			</div>
+		</div>
+	</div>
+	<!--banner-->
+	<div id="banner">
+		<div class="container">
+			<div class="express">
+				<div class="expressTop">
+					<h3>
+						<a href="javascript:;">云汉速递</a>
+					</h3>
+					<h4>
+						<a href="javascript:;" class="icon-prev">&lt;</a>
+						<a href="javascript:;" class="icon-next">&gt;</a>
+					</h4>
+				</div>
+				<div class="expressCon">
+					<ul style="position: relative;">
+						<li style="position: absolute;left: 0;top: 0;width: 200px;height: 115px;">
+							<h5><a href="#">12•8云汉电子节盛大开启，1年1次别错过！</a></h5>
+							<p>期待着期待着，云汉电子节正式开启啦！好货疯抢中，好礼缤纷送，惊喜多多，点我速来~</p>
+						</li>
+						<li style="position: absolute;left: 0;top: 0;width: 200px;height: 115px;display: none;">
+							<h5><a href="#">下单得400元京东卡啦~Arrow、Verical优质货源任选！</a></h5>
+							<p>采购Arrow和Verical货源，满1.5万得200元京东卡，
+								满8万得400元京东卡！</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="gift">
+				<a href="#">
+					<img src="image/gift1.png" alt="" />
+					<span>IC币换礼</span>
+				</a>
+				<a href="#">
+					<img src="image/gift2.png" alt="" />
+					<span>询价</span>
+				</a>
+				<a href="#">
+					<img src="image/gift3.png" alt="" />
+					<span>样片申请</span>
+				</a>
+				<a href="#">
+					<img src="image/gift4.png" alt="" />
+					<span>闪购</span>
+				</a>
+				<a href="#">
+					<img src="image/gift5.png" alt="" />
+					<span>问答</span>
+				</a>
+				<a href="#">
+					<img src="image/gift6.png" alt="" />
+					<span>开发板试用</span>
+				</a>
+			</div>
+		</div>
+		<div class="bannercon">
+			<ul class="photoList">
+				<li style="background: url(image/banner1.jpg) 50% 0% no-repeat rgb(213, 19, 1);display: block"><a href="#" title="云汉芯城 电子节" style="width: 100%;display: inline-block;height: 100%;"></a></li>
+				<li style="background: url(image/banner2.jpg) 50% 0% no-repeat rgb(254, 197, 30);display: none;"><a href="#" title="下单得400元京东卡，Arrow、Verical优质货源任选" style="width: 100%;display: inline-block;height: 100%;"></a></li>
+				<li style="background: url(image/banner3.jpg) 50% 0% no-repeat rgb(230, 230, 231);display: none;"><a href="#" title="零组件检测服务" style="width: 100%;display: inline-block;height: 100%;"></a></li>
+			</ul>
+			<div class="pointList">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--conshow-->
+	<div id="conshow">
+		<div class="conshow1">
+			<a href="particulars.html"><img class="show" src="image/loading.gif" alt=""/></a>
+		</div>
+		<div class="conshow2">
+			<a href="particulars2.html"><img class="show" src="image/loading.gif" alt=""/></a>
+		</div>
+		<div class="conshow3">
+			<a href="#"><img class="show" src="image/loading.gif" alt=""/></a>
+		</div>
+		<div class="conshow4">
+			<a href="#"><img class="show" src="image/loading.gif" alt=""/></a>
+		</div>
+	</div>
+	<!--overseas-->
+	<div id="overseas" class="row louti0">
+		<div class="header">
+			<span class="flooractive"></span>
+			<h3><a href="#">海外供应商代购</a></h3>
+			<span class="bar-sub"><a href="#">授权供应商折扣平台</a></span>
+		</div>
+		<div class="con">
+			<div class="overseas-banner">
+				<ul>
+					<li><a href="#"><img src="image/overseas-banner.jpg"/></a></li>
+				</ul>
+				<div class="linklist">
+					<a href="#">订单金额满1万元 仅需预付30%贷款</a>
+					<a href="javascript:;" class="mt10">运费、关税、3C费、商检费统统全免</a>
+				</div>
+			</div>
+			<div class="overseas-right">
+				<ul>
+					<li><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>Rochester(罗彻斯特)</div></a></li>
+					<li><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>Verical</div></a></li>
+					<li><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>Mouser（贸泽）</div></a></li>
+					<li><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>Digi-Key（得捷）</div></a></li>
+					<li style="margin-left: -1px;"><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>Avnet（安富利）</div></a></li>
+					<li><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>Arrow（艾睿）</div></a></li>
+					<li><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>Future（富昌）</div></a></li>
+					<li><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>Chip One Stop</div></a></li>
+					<li><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>Master</div></a></li>
+					<li style="margin-left: -1px;"><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>TTI</div></a></li>
+					<li><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>Element14（e络盟）</div></a></li>
+					<li><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>Newark</div></a></li>
+					<li><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>P&S（力源）</div></a></li>
+					<li><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>WPG</div></a></li>
+					<li style="margin-left: -1px;"><a href="#"><img class="ajaximg" src="image/loading.gif"/><div>RS（欧时）</div></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="bottom">
+			<ul>
+				<li>
+					<div class="sub-list">
+						<h5><a href="#">TPS767D301PWPR</a></h5>
+						<p class="price">¥6.38</p>
+						<p class="stock">
+							<span>库存:</span>
+							<em>30000</em>
+						</p>
+					</div>
+					<a href="#" class="fr animicon"><img src="image/overseasB1.jpg"/></a>
+				</li>
+				<li>
+					<div class="sub-list">
+						<h5><a href="#">LPY430AL</a></h5>
+						<p class="price">¥21.66</p>
+						<p class="stock">
+							<span>库存:</span>
+							<em>12000</em>
+						</p>
+					</div>
+					<a href="#" class="fr animicon"><img src="image/overseasB2.jpg"/></a>
+				</li>
+				<li>
+					<div class="sub-list">
+						<h5><a href="#">STM32F405RGT6</a></h5>
+						<p class="price">¥38.70</p>
+						<p class="stock">
+							<span>库存:</span>
+							<em>2000</em>
+						</p>
+					</div>
+					<a href="#" class="fr animicon"><img src="image/overseasB3.jpg"/></a>
+				</li>
+				<li>
+					<div class="sub-list">
+						<h5><a href="#">DS3231SN#TR</a></h5>
+						<p class="price">¥33.31</p>
+						<p class="stock">
+							<span>库存:</span>
+							<em>18000</em>
+						</p>
+					</div>
+					<a href="#" class="fr animicon"><img src="image/overseasB4.jpg"/></a>
+				</li>
+				<li>
+					<div class="sub-list">
+						<h5><a href="#">TPS78633DCQ</a></h5>
+						<p class="price">¥12.78</p>
+						<p class="stock">
+							<span>库存:</span>
+							<em>10000</em>
+						</p>
+					</div>
+					<a href="#" class="fr animicon"><img src="image/overseasB5.jpg"/></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--deveKits-->
+	<div id="deveKits" class="row common louti1">
+		<div class="header">
+			<span class="flooractive"></span>
+			<h3><a href="#">开发工具</a></h3>
+			<span class="bar-sub"><a href="#">专业的电子工程师首选商城</a></span>
+		</div>
+		<div class="con">
+			<div class="deveKits-banner">
+				<div class="f1">
+					<div class="banner-slider">
+						<div class="hd">
+							<ul>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</div>
+						<div class="bd">
+							<ul>
+								<li style="display: block;"><a href="#"><img src="image/deveKits-banner1.jpg"/></a></li>
+								<li style="display: none;"><a href="#"><img src="image/deveKits-banner2.jpg"/></a></li>
+								<li style="display: none;"><a href="#"><img src="image/deveKits-banner3.jpg"/></a></li>
+							</ul> 
+						</div>
+					</div>
+				</div>
+				<div class="linklist">
+					<a href="#">开发工具新品促销 ></a>
+					<a href="javascript:;" class="mt10">仪器仪表精选好货 ></a>
+				</div>
+				<div class="fastlink-list">
+					<ul>
+						<li><a href="#">树莓派</a></li>
+						<li><a href="#">开发板</a></li>
+						<li><a href="#">英飞凌IGBT</a></li>
+						<li><a href="#">电源模块</a></li>
+						<li><a href="#">示波器</a></li>
+						<li><a href="#">仪器仪表</a></li>
+						<li><a href="#">焊接工具</a></li>
+						<li><a href="#">五金工具</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="deveKits-right">
+				<div class="_top">
+					<div>
+						<span class="on">热门</span>
+						<span>开发板</span>
+						<span>仪器仪表</span>
+						<span>焊接工具</span>
+						<span>五金工具</span>
+					</div>
+				</div>
+				<div class="conList">
+					<div class="develop">
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/deveKits1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">Intel Genuino 101 (Curie)</a></h4>
+									<span>下单送好礼</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">IGBT模块</a></h4>
+									<span>热卖英飞凌模块</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">品牌电源</a></h4>
+									<span>知名国内电源</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits4.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">仪器仪表</a></h4>
+									<span>热门爆款　低价来袭</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits5.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">焊接工具</a></h4>
+									<span>品牌质量　低价促销</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">五金工具</a></h4>
+									<span>选最专业的工程师设备</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits7.jpg"/></a>
+							</li>
+						</ul>
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/deveKits2-1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">小e智能硬件开发板</a></h4>
+									<span>¥169.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits2-2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">Intel Genuino 101 (Curie)</a></h4>
+									<span>¥225.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits2-3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">树莓派 全新B+版</a></h4>
+									<span>¥198.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits2-4.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">element14 BeagleBone Black(Rev C)</a></h4>
+									<span>¥419.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits2-5.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">Intel Galileo Gen 2</a></h4>
+									<span>¥490.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits2-6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">STM32F103ZET6开发板</a></h4>
+									<span>¥209.66</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits2-7.jpg"/></a>
+							</li>
+						</ul>
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/deveKits3-1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">小e智能硬件开发板</a></h4>
+									<span>¥169.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits3-2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">Intel Genuino 101 (Curie)</a></h4>
+									<span>¥225.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits3-3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">树莓派 全新B+版</a></h4>
+									<span>¥198.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits3-4.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">element14 BeagleBone Black(Rev C)</a></h4>
+									<span>¥419.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits3-5.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">Intel Galileo Gen 2</a></h4>
+									<span>¥490.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits3-6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">STM32F103ZET6开发板</a></h4>
+									<span>¥209.66</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits3-7.jpg"/></a>
+							</li>
+						</ul>
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/deveKits4-1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">小e智能硬件开发板</a></h4>
+									<span>¥169.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits4-2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">Intel Genuino 101 (Curie)</a></h4>
+									<span>¥225.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits4-3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">树莓派 全新B+版</a></h4>
+									<span>¥198.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits4-4.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">element14 BeagleBone Black(Rev C)</a></h4>
+									<span>¥419.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits4-5.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">Intel Galileo Gen 2</a></h4>
+									<span>¥490.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits4-6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">STM32F103ZET6开发板</a></h4>
+									<span>¥209.66</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits4-7.jpg"/></a>
+							</li>
+						</ul>
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/deveKits5-1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">小e智能硬件开发板</a></h4>
+									<span>¥169.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits5-2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">Intel Genuino 101 (Curie)</a></h4>
+									<span>¥225.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits5-3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">树莓派 全新B+版</a></h4>
+									<span>¥198.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits5-4.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">element14 BeagleBone Black(Rev C)</a></h4>
+									<span>¥419.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits5-5.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">Intel Galileo Gen 2</a></h4>
+									<span>¥490.00</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits5-6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">STM32F103ZET6开发板</a></h4>
+									<span>¥209.66</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/deveKits5-7.jpg"/></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="logopiclist">
+				<img src="image/deveKitsB1.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB2.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB3.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB4.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB5.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB6.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB7.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB8.jpg"/>
+			</div>
+		</div>
+	</div>
+	<!--device-->
+	<div id="device" class="row common louti2">
+		<div class="header">
+			<span class="flooractive"></span>
+			<h3><a href="#">被动器材</a></h3>
+			<span class="bar-sub"><a href="#">小批量发货，快速送达</a></span>
+		</div>
+		<div class="con">
+			<div class="deveKits-banner">
+				<div class="f1">
+					<div class="banner-slider">
+						<div class="hd">
+							<ul>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</div>
+						<div class="bd">
+							<ul>
+								<li style="display: block;"><a href="#"><img src="image/device-banner1.jpg"/></a></li>
+								<li style="display: none;"><a href="#"><img src="image/device-banner2.jpg"/></a></li>
+								<li style="display: none;"><a href="#"><img src="image/device-banner3.jpg"/></a></li>
+							</ul> 
+						</div>
+					</div>
+				</div>
+				<div class="linklist">
+					<a href="#">被动元件自营上线</a>
+					<a href="javascript:;" class="mt10">欧美日系国产品牌各路集结</a>
+				</div>
+				<div class="fastlink-list">
+					<ul>
+						<li><a href="#">陶瓷电容</a></li>
+						<li><a href="#">薄膜电容</a></li>
+						<li><a href="#">压敏电阻</a></li>
+						<li><a href="#">薄膜电阻</a></li>
+						<li><a href="#">有源晶振</a></li>
+						<li><a href="#">无源晶振</a></li>
+						<li><a href="#">保险丝</a></li>
+						<li><a href="#">电位器</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="deveKits-right">
+				<div class="_top">
+					<div>
+						<span class="on">热门</span>
+						<span>电容</span>
+						<span>电阻</span>
+						<span>电感</span>
+						<span>晶振</span>
+					</div>
+				</div>
+				<div class="conList">
+					<div class="develop">
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/device1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">Panasonic全新FKS系列电容器</a></h4>
+									<span>电容量更高 体积更小</span>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">Panasonic</span>
+									</div>
+								</div>
+								<a href="#" class="animicon"><img src="image/device2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">Vishay 534系列10转绕线电位计</a></h4>
+									<span>可变电阻 面板安装</span>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">Vishay</span>
+									</div>
+								</div>
+								<a href="#" class="animicon"><img src="image/device3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">Murata三端电容器 DSS6/DSS9 系列</a></h4>
+									<span>新品上市 最新发售</span>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">Murata</span>
+									</div>
+								</div>
+								<a href="#" class="animicon"><img src="image/device4.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">Bourns SA 系列高电压气体放电管</a></h4>
+									<span>最新价格优惠 特惠促销</span>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">Bourns</span>
+									</div>
+								</div>
+								<a href="#" class="animicon"><img src="image/device5.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">AVX TPS 系列 10μF ±10% SMD 钽电解电容器</a></h4>
+									<span>低功率 热消散</span>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">AVX</span>
+									</div>
+								</div>
+								<a href="#" class="animicon"><img src="image/device6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">Epcos 铁氧体磁环B64290 涂层环芯</a></h4>
+									<span>优势价格 全网特供</span>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">Epcos</span>
+									</div>
+								</div>
+								<a href="#" class="animicon"><img src="image/device7.jpg"/></a>
+							</li>
+						</ul>
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/device2-1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">UPW1E682MHD</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">NICHICON</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device2-2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">ECA1VM101</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device2-3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">PMR209ME6470M100R30</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">KEMET</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device2-4.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">C3216X5R1E476M160AC</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">TDK</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device2-5.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">08055C104KAT2A</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">AVX</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device2-6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">VJ2525D130GXWMW</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">VISHAY</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device2-7.jpg"/></a>
+							</li>
+						</ul>
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/device3-1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">UPW1E682MHD</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">NICHICON</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device3-2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">ECA1VM101</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device3-3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">PMR209ME6470M100R30</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">KEMET</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device3-4.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">C3216X5R1E476M160AC</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">TDK</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device3-5.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">08055C104KAT2A</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">AVX</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device3-6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">VJ2525D130GXWMW</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">VISHAY</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device3-7.jpg"/></a>
+							</li>
+						</ul>
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/device4-1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">小e智能硬件开发板</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device4-2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">Intel Genuino 101 (Curie)</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device4-3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">树莓派 全新B+版</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device4-4.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">element14 BeagleBone Black(Rev C)</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device4-5.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">Intel Galileo Gen 2</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device4-6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">STM32F103ZET6开发板</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device4-7.jpg"/></a>
+							</li>
+						</ul>
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/device5-1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">小e智能硬件开发板</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device5-2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">Intel Genuino 101 (Curie)</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device5-3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">树莓派 全新B+版</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device5-4.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">element14 BeagleBone Black(Rev C)</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device5-5.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">Intel Galileo Gen 2</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device5-6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">STM32F103ZET6开发板</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device5-7.jpg"/></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="logopiclist">
+				<img src="image/deveKitsB1.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB2.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB3.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB4.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB5.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB6.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB7.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB8.jpg"/>
+			</div>
+		</div>
+	</div>
+	<!--linker-->
+	<div id="linker" class="row common louti3">
+		<div class="header">
+			<span class="flooractive"></span>
+			<h3><a href="#">连接器/线缆</a></h3>
+			<span class="bar-sub"><a href="#">品质保证，用心服务</a></span>
+		</div>
+		<div class="con">
+			<div class="deveKits-banner">
+				<div class="f1">
+					<div class="banner-slider">
+						<div class="hd">
+							<ul>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</div>
+						<div class="bd">
+							<ul>
+								<li style="display: block;"><a href="#"><img src="image/linker-banner1.jpg"/></a></li>
+								<li style="display: none;"><a href="#"><img src="image/linker-banner2.jpg"/></a></li>
+								<li style="display: none;"><a href="#"><img src="image/linker-banner3.jpg"/></a></li>
+							</ul> 
+						</div>
+					</div>
+				</div>
+				<div class="linklist">
+					<a href="#">FOXCONN全系原厂特供</a>
+					<a href="javascript:;" class="mt10">全网比价</a>
+				</div>
+				<div class="fastlink-list">
+					<ul>
+						<li><a href="#">FPC</a></li>
+						<li><a href="#">板对板</a></li>
+						<li><a href="#">线对板</a></li>
+						<li><a href="#">线对线</a></li>
+						<li><a href="#">继电器</a></li>
+						<li><a href="#">端子</a></li>
+						<li><a href="#">开关</a></li>
+						<li><a href="#">I/O连接器</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="deveKits-right">
+				<div class="_top">
+					<div>
+						<span class="on">热门</span>
+						<span>汽车/工业类</span>
+						<span>消费类</span>
+						<span>其他类</span>
+					</div>
+				</div>
+				<div class="conList">
+					<div class="develop">
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/linker1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">消费类电子</a></h4>
+									<span>享受“惠”生活</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/linker2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">通讯系统</a></h4>
+									<span>畅通无阻</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/linker3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">计算机周边</a></h4>
+									<span>本月“惠”战抢先购</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/linker4.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">汽车电子</a></h4>
+									<span>高新技术产品应有尽有</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/linker5.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">医疗电子</a></h4>
+									<span>海外创新医疗产品</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/linker6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">工业控制</a></h4>
+									<span>货品齐全 货期精准</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/linker7.jpg"/></a>
+							</li>
+						</ul>
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/device2-1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">UPW1E682MHD</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">NICHICON</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device2-2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">ECA1VM101</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device2-3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">PMR209ME6470M100R30</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">KEMET</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device2-4.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">C3216X5R1E476M160AC</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">TDK</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device2-5.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">08055C104KAT2A</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">AVX</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device2-6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">VJ2525D130GXWMW</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">VISHAY</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device2-7.jpg"/></a>
+							</li>
+						</ul>
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/device3-1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">UPW1E682MHD</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">NICHICON</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device3-2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">ECA1VM101</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device3-3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">PMR209ME6470M100R30</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">KEMET</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device3-4.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">C3216X5R1E476M160AC</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">TDK</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device3-5.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">08055C104KAT2A</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">AVX</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device3-6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">VJ2525D130GXWMW</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">VISHAY</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device3-7.jpg"/></a>
+							</li>
+						</ul>
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/device4-1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">小e智能硬件开发板</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device4-2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info-center">
+									<h4><a href="#">Intel Genuino 101 (Curie)</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device4-3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">树莓派 全新B+版</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device4-4.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">element14 BeagleBone Black(Rev C)</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device4-5.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">Intel Galileo Gen 2</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device4-6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info-center">
+									<h4><a href="#">STM32F103ZET6开发板</a></h4>
+									<div class="mt10">
+										<span class="fs-12 zt-13">厂牌：</span>
+										<span class="fs-12">PANASONIC</span>
+									</div>
+								</div>
+								<a href="#" class="animicon productposimg-center"><img src="image/device4-7.jpg"/></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="logopiclist">
+				<img src="image/deveKitsB1.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB2.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB3.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB4.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB5.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB6.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB7.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB8.jpg"/>
+			</div>
+		</div>
+	</div>
+	<!--consign-->
+	<div id="consign" class="row louti4">
+		<div class="header">
+			<span class="flooractive"></span>
+			<h3><a href="#">库存寄售服务</a></h3>
+			<span class="bar-sub"><a href="#">为您的库存迅速找到合适的买家</a></span>
+		</div>
+		<div class="con">
+			<div class="f1">
+				<a href="#"><img src="image/consign-banner1.jpg"/></a>
+			</div>
+			<div class="consign-right">
+				<div class="w335">
+					<img src="image/consign1.jpg"/>
+				</div>
+				<div class="w201">
+					<img src="image/consign2.jpg"/>
+					<img src="image/consign3.jpg"/>
+				</div>
+				<div class="submit-from">
+					<form action="" method="post">
+						<div class="tab">
+							<div><h4 style="color: #333;">在线提交委托信息</h4></div>
+							<div>
+								<span><i class="red">*</i>联系人：</span>
+								<input type="text" class="form-control"/>
+							</div>
+							<div>
+								<span><i class="red">*</i>手机号码：</span>
+								<input type="text" class="form-control"/>
+							</div>
+							<div>
+								<span>公司名称：</span>
+								<input type="text" class="form-control"/>
+							</div>
+							<div>
+								<span><i class="red">*</i>上传资料：</span>
+								<span class="file-btn">上传我的库存清单<input class="file-upload" type="file"/></span>
+								<p>（请上传excel文件，最大不超过4MB）</p>
+							</div>
+							<div>
+								<button class="btn">提交</button>
+							</div>
+						</div>
+						<div class="contact">
+							<h4 style="color: #333;">欢迎联系洽淡</h4>
+							<p class="mt15">
+								<i></i>
+								<span class="zt1">stock@ickey.cn</span>
+							</p>
+							<p class="mt5">
+								<i></i>
+								<span class="zt1">021-31029100-8059</span>
+							</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<a href="#"><img src="image/consignB.jpg"/></a>
+		</div>
+	</div>
+	<!--pcbsevice-->
+	<div id="pcbsevice" class="row common louti5">
+		<div class="header">
+			<span class="flooractive"></span>
+			<h3><a href="#">PCB服务平台</a></h3>
+			<span class="bar-sub"><a href="#">PCB需求一站解决</a></span>
+		</div>
+		<div class="con">
+			<div class="deveKits-banner">
+				<div class="f1">
+					<div class="banner-slider">
+						<div class="bd">
+							<ul>
+								<li style="display: block;"><a href="#"><img src="image/pcbsevice-banner.jpg"/></a></li>
+							</ul> 
+						</div>
+					</div>
+				</div>
+				<div class="linklist">
+					<a href="#">加急交期最快24小时</a>
+					<a href="javascript:;" class="mt10">全场顺丰包邮</a>
+				</div>
+			</div>
+			<div class="deveKits-right">
+				<div class="_top">
+					<div>
+						<span class="on">热门</span>
+					</div>
+				</div>
+				<div class="conList">
+					<div class="develop">
+						<ul>
+							<li class="develop-first">
+								<a href="#"><img src="image/linker1.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">消费类电子</a></h4>
+									<span>享受“惠”生活</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/linker2.jpg"/></a>
+							</li>
+							<li>
+								<div class="dev-info">
+									<h4><a href="#">通讯系统</a></h4>
+									<span>畅通无阻</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/linker3.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">计算机周边</a></h4>
+									<span>本月“惠”战抢先购</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/linker4.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">汽车电子</a></h4>
+									<span>高新技术产品应有尽有</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/linker5.jpg"/></a></li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">医疗电子</a></h4>
+									<span>海外创新医疗产品</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/linker6.jpg"/></a>
+							</li>
+							<li class="h189">
+								<div class="dev-info">
+									<h4><a href="#">工业控制</a></h4>
+									<span>货品齐全 货期精准</span>
+								</div>
+								<a href="#" class="animicon"><img src="image/linker7.jpg"/></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="logopiclist">
+				<img src="image/deveKitsB1.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB2.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB3.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB4.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB5.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB6.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB7.jpg"/>
+			</div>
+			<div class="logopiclist">
+				<img src="image/deveKitsB8.jpg"/>
+			</div>
+		</div>
+	</div>
+	<!--datasevice-->
+	<div id="datasevice" class="row louti6">
+		<div class="header">
+			<span class="flooractive"></span>
+			<h3><a href="#">元器件数据服务</a></h3>
+			<span class="bar-sub"><a href="#">全面型号搜索，便捷BOM管理</a></span>
+		</div>
+		<div class="con">
+			<div class="datasevice-banner">
+				<a href="#"><img src="image/datasevice1.jpg"/></a>
+			</div>
+			<div class="sjfwcon">
+				<a href="#"><img src="image/datasevice2.jpg"/></a>
+			</div>
+			<div class="sjfw-form">
+				<form action="" method="post">
+					<div class="sjfw-title">立即开启免费试用</div>
+					<div class="sjfw-tab">
+						<div class="sjfw-tab-con">
+							<div>
+								<input type="text"/>
+								<span><i class="red">*</i>姓名：</span>
+							</div>
+							<div>
+								<input type="text" placeholder="为确保申请成功，请填写真实邮箱"/>
+								<span><i class="red">*</i>邮箱：</span>
+							</div>
+							<div>
+								<input type="text" placeholder="为确保申请成功，请填写真实号码"/>
+								<span><i class="red">*</i>联系电话：</span>
+							</div>
+							<div>
+								<input type="text"/>
+								<span><i class="red">*</i>公司类型：</span>
+							</div>
+							<div>
+								<input type="text"/>
+								<span><i class="red">*</i>公司名字：</span>
+							</div>
+							<div>
+								<span class="code"></span>
+								<input type="text"class="f1"/>
+								<span><i class="red">*</i>验证码：</span>
+							</div>
+							<div>
+								<button class="apply-btn">提交申请</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!--bbs-->
+	<div id="bbs" class="row louti7">
+		<div class="header">
+			<span class="flooractive"></span>
+			<h3><a href="#">电子工程社区</a></h3>
+			<span class="bar-sub"><a href="#">技术交流 有求必应</a></span>
+		</div>
+		<div class="bbscon">
+			<div class="bbsconT">
+				<div class="bbsconT1">
+					<a href="#"><img src="image/bbs1.jpg"/></a>
+				</div>
+				<div class="bbsconT2 bbscommon">
+					<h3>社区热帖<a href="#">更多&gt;</a></h3>
+					<ul>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+					</ul>
+				</div>
+				<div class="bbsconT3 bbscommon">
+					<h3>申请样片<a href="#">更多&gt;</a></h3>
+					<table>
+						<thead>
+							<tr height="25">
+								<td width="100">型号</td>
+								<td width="115">品牌</td>
+								<td width="60">已申请</td>
+								<td width="35"></td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr height="30">
+								<td>
+									<div class="t-o w90p">IPA50R190CE</div>
+								</td>
+								<td>
+									<div class="t-o w80p">Infineon activity</div>
+								</td>
+								<td>
+									<div class="t-o w60p">61人</div>
+								</td>
+								<td>
+									<a href="$">申请</a>
+								</td>
+							</tr>
+							<tr height="30">
+								<td>
+									<div class="t-o w90p">IPA50R190CE</div>
+								</td>
+								<td>
+									<div class="t-o w80p">Infineon activity</div>
+								</td>
+								<td>
+									<div class="t-o w60p">61人</div>
+								</td>
+								<td>
+									<a href="$">申请</a>
+								</td>
+							</tr>
+							<tr height="30">
+								<td>
+									<div class="t-o w90p">IPA50R190CE</div>
+								</td>
+								<td>
+									<div class="t-o w80p">Infineon activity</div>
+								</td>
+								<td>
+									<div class="t-o w60p">61人</div>
+								</td>
+								<td>
+									<a href="$">申请</a>
+								</td>
+							</tr>
+							<tr height="30">
+								<td>
+									<div class="t-o w90p">IPA50R190CE</div>
+								</td>
+								<td>
+									<div class="t-o w80p">Infineon activity</div>
+								</td>
+								<td>
+									<div class="t-o w60p">61人</div>
+								</td>
+								<td>
+									<a href="$">申请</a>
+								</td>
+							</tr>
+							<tr height="30">
+								<td>
+									<div class="t-o w90p">IPA50R190CE</div>
+								</td>
+								<td>
+									<div class="t-o w80p">Infineon activity</div>
+								</td>
+								<td>
+									<div class="t-o w60p">61人</div>
+								</td>
+								<td>
+									<a href="$">申请</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="bbsconB">
+				<div class="bbsconB1">
+					<a href="#"><img src="image/bbs2.jpg"/></a>
+				</div>
+				<div class="bbsconB2 bbscommon">
+					<h3>社区问答<a href="#">更多&gt;</a></h3>
+					<ul>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+					</ul>
+				</div>
+				<div class="bbsconB3 bbscommon">
+					<h3>社区问答<a href="#">更多&gt;</a></h3>
+					<ul>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+						<li>
+							<a href="#"><font>【社区活动】</font>云汉电子节红包开抢啦，千万红包免费送，机会不可错过...</a>
+							<span class="time">2016-12-07</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--hot-->
+	<div id="hot">
+		<ul>
+			<li class="hotarea">热门专区</li>
+			<li><a href="#"><img src="image/hot1.jpg"/><div>ARDUINO</div></a></li>
+			<li><a href="#"><img src="image/hot1.jpg"/><div>ARDUINO</div></a></li>
+			<li><a href="#"><img src="image/hot1.jpg"/><div>ARDUINO</div></a></li>
+			<li><a href="#"><img src="image/hot1.jpg"/><div>ARDUINO</div></a></li>
+			<li><a href="#"><img src="image/hot1.jpg"/><div>ARDUINO</div></a></li>
+			<li><a href="#"><img src="image/hot1.jpg"/><div>ARDUINO</div></a></li>
+		</ul>
+	</div>
+	<!--container-fluid-->
+	<div id="container-fluid">
+	</div>
+	<!--footer-->
+	<div id="footer">
+		<div class="footer-fastlink">
+			<div>
+				<h4>购物指南</h4>
+				<ul>
+					<li><a href="#">新手上路</a></li>
+					<li><a href="#">会员等级说明</a></li>
+					<li><a href="#">会员中心说明</a></li>
+					<li><a href="#">发票须知</a></li>
+					<li><a href="#">免责说明</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>购物指南</h4>
+				<ul>
+					<li><a href="#">新手上路</a></li>
+					<li><a href="#">会员等级说明</a></li>
+					<li><a href="#">会员中心说明</a></li>
+					<li><a href="#">发票须知</a></li>
+					<li><a href="#">免责说明</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>购物指南</h4>
+				<ul>
+					<li><a href="#">新手上路</a></li>
+					<li><a href="#">会员等级说明</a></li>
+					<li><a href="#">会员中心说明</a></li>
+					<li><a href="#">发票须知</a></li>
+					<li><a href="#">免责说明</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>购物指南</h4>
+				<ul>
+					<li><a href="#">新手上路</a></li>
+					<li><a href="#">会员等级说明</a></li>
+					<li><a href="#">会员中心说明</a></li>
+					<li><a href="#">发票须知</a></li>
+					<li><a href="#">免责说明</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>购物指南</h4>
+				<ul>
+					<li><a href="#">新手上路</a></li>
+					<li><a href="#">会员等级说明</a></li>
+					<li><a href="#">会员中心说明</a></li>
+					<li><a href="#">发票须知</a></li>
+					<li><a href="#">免责说明</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>购物指南</h4>
+				<ul style="border-right: 0;">
+					<li><a href="#">新手上路</a></li>
+					<li><a href="#">会员等级说明</a></li>
+					<li><a href="#">会员中心说明</a></li>
+					<li><a href="#">发票须知</a></li>
+					<li><a href="#">免责说明</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-address">
+			<p>
+            	地址：上海市漕河泾松江新兴产业园32号11层（莘砖公路258号）　客服热线：400-862-6630 (9:00-18:00) 　投诉电话：021-64821936-9120
+        	</p>
+        	<p style="margin-top: 10px;">© 2016 www.ickey.cn 　沪ICP备10202707号</p>
+		</div>
+		<div class="footer-logo">
+			<span><a href="#" class="logo_alipay"></a></span>
+			<span><a href="#" class="logo_tenpay"></a></span>
+			<span><a href="#" class="logo_unionpay"></a></span>
+			<span><a href="#" class="logo_ups"></a></span>
+			<span><a href="#" class="logo_fedex"></a></span>
+			<span><a href="#" class="logo_sfexpress"></a></span>
+			<span><a href="#" class="logo_gsj"></a></span>
+		</div>
+	</div>
+	<!--楼梯-->
+	<div id="stairs">
+		<a href="#">海外代购</a>
+		<a href="#">开发工具</a>
+		<a href="#">被动器件</a>
+		<a href="#">连接器</a>
+		<a href="#">库存寄售</a>
+		<a href="#">PCB服务</a>
+		<a href="#">数据服务</a>
+		<a href="#">电子社区</a>
+	</div>
+	<!--右侧栏-->
+	<div id="navtoolbar">
+		<div class="bottomtoolbar">
+			<a href="javascript:;"><img src="image/gotop.png"/></a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var aimg = document.getElementsByClassName("ajaximg");
+		var aShow = document.getElementsByClassName("show");
+		$.ajax("img.lol",{
+			success:function(data){
+				var str = data.split(";");
+				var arr = eval("("+str[0]+")");
+				var arr1 = eval("("+str[1]+")");
+				console.log(arr)
+				for(var i=0; i<aShow.length; i++){
+					aShow[i].src = arr[i].src;
+				}
+				for(var i=0; i<aimg.length; i++){
+					aimg[i].src = arr1[i].src;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

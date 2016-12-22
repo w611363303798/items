@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册页面</title>
+		<link rel="stylesheet" type="text/css" href="css/logincommon.css"/>
+		<link rel="stylesheet" type="text/css" href="css/register.css"/>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--top-->
+		<div id="top" class="bg-f5">
+			<div id="topcon" class="ptb5">
+				<a href="#">收藏云汉芯城</a>
+				<ul>
+					<li>您好！欢迎来到ICkey!</li>
+					<li class="mlr5">|</li>
+					<a href="#">新手上路</a>
+				</ul>
+			</div>
+		</div>
+		<!--logo-->
+		<div id="logo" class="ptb10 clearfix">
+			<a href="index.html"><img src="image/logo.png"/></a>
+			<span class="welcome">欢迎登录</span>
+		</div>
+		<!--register-->
+		<div id="register">
+			<div class="container">
+				<div class="con">
+					<form action="" method="post">
+						<div class="register-list">
+							<div class="register-list-group">
+								<span class="notnull"><i class="red">*</i>用户名：</span>
+								<input type="text" class="form-control" id="userName" placeholder="您的账户名和登录名" />
+							</div>
+							<div class="register-list-tips">
+								支持中文、字母、数字和下划线，4-20个字符
+							</div>
+						</div>
+						<div class="register-list">
+							<div class="register-list-group">
+								<span class="notnull"><i class="red">*</i>邮箱：</span>
+								<input type="text" class="form-control" id="email" placeholder="请输入常用邮箱号码" />
+							</div>
+							<div class="register-list-tips">
+								请填写常用邮箱，以便接收订单确认、询价回复等提醒通知
+							</div>
+							<div class="register-list-tips red">
+								邮箱格式不正确
+							</div>
+						</div>
+						<div class="register-list">
+							<div class="register-list-group">
+								<span class="notnull"><i class="red">*</i>手机：</span>
+								<input type="text" class="form-control" id="phone" placeholder="您的账户名和登录名" />
+							</div>
+							<div class="register-list-tips">
+								完成验证后，你可以使用该手机号码登录和找回密码
+							</div>
+							<div class="register-list-tips red">
+								手机格式不正确
+							</div>
+						</div>
+						<div class="register-list">
+							<div class="register-list-group">
+								<span class="notnull"><i class="red">*</i>验证码：</span>
+								<input type="text" class="form-control codeipt" id="Code" placeholder="请输入正确的验证码" />
+								<div class="code" id="code"></div>
+							</div>
+							<div class="register-list-tips red">
+								验证码不正确
+							</div>
+						</div>
+						<div class="register-list">
+							<div class="register-list-group">
+								<span class="notnull"><i class="red">*</i>手机验证码：</span>
+								<input type="text" class="form-control codeipt" id="phoneCode" placeholder="请输入手机验证码" />
+								<div class="code" id="phonecode">
+									获得验证码
+								</div>
+							</div>
+							<div class="register-list-tips red">
+								手机验证码不正确
+							</div>
+						</div>
+						<div class="register-list">
+							<div class="register-list-group">
+								<span class="notnull"><i class="red">*</i>设置密码：</span>
+								<input type="password" class="form-control" id="passWord" placeholder="建议至少使用两种字符组合" />
+							</div>
+							<div class="register-list-tips red">
+								长度为6-20位，可由英文、数字和下划线组成。
+							</div>
+						</div>
+						<div class="register-list">
+							<div class="register-list-group">
+								<span class="notnull"><i class="red">*</i>确认密码：</span>
+								<input type="password" class="form-control" id="confirmpw" placeholder="请再次输入密码" />
+							</div>
+							<div class="register-list-tips red">
+								两次输入不一致
+							</div>
+						</div>
+						<div class="register-list">
+							<div class="register-list-group">
+								<span class="notnull"><i class="red"></i>邀请码：</span>
+								<input type="text" class="form-control" id="key" placeholder="新用户输入邀请码得IC币" />
+							</div>
+							<div class="register-list-tips red">
+								邀请码不正确！
+							</div>
+						</div>
+						<div class="register-list">
+							<div class="register-list-group">
+								<span class="notnull"><i class="red"></i>用户类型：</span>
+								<input type="text" class="form-control select" readonly="readonly" placeholder="请选择用户类型" />
+								<div class="select-menu">▼</div>
+								<div class="select-list">
+									<ul>
+										<li><a href="javascript:;">其他</a></li>
+										<li><a href="javascript:;">贸易商</a></li>
+										<li><a href="javascript:;">高校研究所</a></li>
+										<li><a href="javascript:;">生产厂家</a></li>
+										<li><a href="javascript:;">研发方案供应商</a></li>
+										<li><a href="javascript:;">个人用户</a></li>
+										<li><a href="javascript:;">代工厂</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="register-list-tips red">
+							</div>
+						</div>
+						<div class="register-list">
+							<div class="register-list-group">
+								<span class="notnull"><i class="red"></i>行业类型：</span>
+								<input type="text" class="form-control select" readonly="readonly" placeholder="请选择行业" />
+								<div class="select-menu">▼</div>
+								<div class="select-list">
+									<ul>
+										<li><a href="javascript:;">其他</a></li>
+										<li><a href="javascript:;">消费电子</a></li>
+										<li><a href="javascript:;">汽车电子</a></li>
+										<li><a href="javascript:;">医疗电子</a></li>
+										<li><a href="javascript:;">照明显示</a></li>
+										<li><a href="javascript:;">能源电力</a></li>
+										<li><a href="javascript:;">网络与通信系统</a></li>
+										<li><a href="javascript:;">智能手机与平板电脑</a></li>
+										<li><a href="javascript:;">测试仪器与设备</a></li>
+										<li><a href="javascript:;">国防航空</a></li>
+										<li><a href="javascript:;">IC及元器件</a></li>
+										<li><a href="javascript:;">行业分销服务</a></li>
+										<li><a href="javascript:;">高校教育</a></li>
+										<li><a href="javascript:;">安防</a></li>
+										<li><a href="javascript:;">智能交通</a></li>
+										<li><a href="javascript:;">物联网</a></li>
+										<li><a href="javascript:;">无人机</a></li>
+										<li><a href="javascript:;">机器人</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="register-list-tips red">
+							</div>
+						</div>
+						<div class="register-list mb0-i">
+							<div class="register-list-group">
+								<span class="notnull"></span>
+								<div>
+									<input type="checkbox" style="margin: 0;"/>
+									<span>我已阅读并同意</span>
+									<a href="#" class="theme-link">《云汉芯城用户注册协议》</a>
+								</div>
+							</div>
+							<div class="register-list-tips red">
+							</div>
+						</div>
+						<div class="register-form-submit">
+							<input type="submit" value="立即注册" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--bottom-->
+		<div id="footer">
+			<ul>
+				<li><a href="#">关于云汉芯城</a></li>
+				<li><a href="#">企业简介</a></li>
+				<li><a href="#">企业文化</a></li>
+				<li><a href="#">服务简介</a></li>
+				<li><a href="#">联系我们</a></li>
+				<li><a href="#">加入我们</a></li>
+			</ul>
+			<div class="footer-address">
+				<p>地址：上海市漕河泾松江新兴产业园32号11层（莘砖公路258号）　客服热线：400-862-6630 (9:00-18:00) 　投诉电话：021-64821936-9120</p>
+				<p class="mt10">© 2016 www.ickey.cn 　沪ICP备10202707号</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//随机验证码
+			$("#code").html(code(4));
+			$("#code").click(function(){
+				$("#code").html(code(4));
+			})
+			//支持中文、字母、数字和下划线，4-20个字符
+			$("#userName").focus(function(){
+				$(this).parent().siblings().css("display","block").removeClass("red");
+			})
+			$("#userName").blur(function(){
+				var user = $("#userName").val();
+				var myReg = /^[\u2E80-\u9FFF\w_]{4,20}$/;
+				if(!myReg.test(user)){
+					$(this).parent().siblings().css("display","block").addClass("red");
+				}else{
+					$(this).parent().siblings().css("display","none");
+				}
+			})
+			//邮箱
+			$("#email").focus(function(){
+				$(this).parent().siblings().eq(0).css("display","block");
+				$(this).parent().siblings().eq(1).css("display","none");
+			})
+			$("#email").blur(function(){
+				var mail = $("#email").val();
+				var myReg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+				if(!myReg.test(mail)){
+					$(this).parent().siblings().eq(0).css("display","none");
+					$(this).parent().siblings().eq(1).css("display","block");
+				}else{
+					$(this).parent().siblings().eq(0).css("display","none");
+					$(this).parent().siblings().eq(1).css("display","none");
+				}
+			})
+			//手机号码
+			 $("#phone").focus(function(){
+			 	$(this).parent().siblings().eq(0).css("display","block");
+			 	$(this).parent().siblings().eq(1).css("display","none");
+			 })
+			 $("#phone").blur(function(){
+			 	var phone = $("#phone").val();
+			 	var myReg = /^1[34578]\d{9}$/;
+			 	if(!myReg.test(phone)){
+			 		$(this).parent().siblings().eq(0).css("display","none");
+					$(this).parent().siblings().eq(1).css("display","block");
+			 	}else{
+			 		$(this).parent().siblings().eq(0).css("display","none");
+					$(this).parent().siblings().eq(1).css("display","none");
+			 	}
+			 })
+			 //验证码
+			 $("#Code").blur(function(){
+			 	var code = $("#Code").val();
+			 	if(code.toUpperCase() != $("#code").html()){
+			 		$(this).parent().siblings().css("display","block");
+			 	}else{
+			 		$(this).parent().siblings().css("display","none");
+			 	}
+			 })
+			 //密码长为6-20位，可由英文、数字和下划线组成
+			 var pw;
+			 $("#passWord").blur(function(){
+			 	pw = $("#passWord").val();
+			 	var myReg = /^\w{6,20}$/;
+			 	if(!myReg.test(pw)){
+			 		$(this).parent().siblings().css("display","block")
+			 	}else{
+			 		$(this).parent().siblings().css("display","none")
+			 	}
+			 })
+			 //确认密码
+			 $("#confirmpw").blur(function(){
+			 	var oPw = $("#confirmpw").val();
+			 	if(oPw != pw){
+			 		$(this).parent().siblings().css("display","block")
+			 	}else{
+			 		$(this).parent().siblings().css("display","none")
+			 	}
+			 })
+			 //下拉菜单
+			 $(".select,.select-menu").click(function(e){
+			 	e.stopPropagation();
+			 	$(".select-list").css("display","none")
+			 	$(this).siblings(".select-list").css("display","block")
+			 })
+			 $(document).click(function(){
+			 	$(".select-list").css("display","none")
+			 })
+			 $(".select-list li").click(function(){
+			 	$(this).parent().parent().siblings("input").val($(this).children().html())
+			 })
+		</script>
+	</body>
+</html>

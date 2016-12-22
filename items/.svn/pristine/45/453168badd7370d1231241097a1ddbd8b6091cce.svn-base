@@ -1,0 +1,346 @@
+@charset "utf-8";
+.mlr15{
+	margin: 0 15px;
+}
+.mt5{
+	margin-top: 5px;
+}
+.mt20{
+	margin-top: 20px;
+}
+.l-2em{
+	line-height: 2em;
+}
+.stress{
+	color: #f60;
+}
+.red{
+	color: red;
+}
+.w100{
+	width: 100%;
+}
+#nav .navall .menunav{
+	display: none;
+}
+#ad .gg{
+	position: absolute;
+}
+/*container*/
+#container{
+	font-size: 14px;
+	color: #666;
+	width: 1190px;
+	margin: 0 auto;
+}
+#container ol{
+	padding: 10px 0;
+}
+#container ol li{
+	display: inline-block;
+	line-height: 20px;
+}
+#container .rel{
+	position: relative;
+}
+#container .priceL{
+	width: 25%;
+	float: left;
+}
+#container .priceL .detail-img{
+	border: 1px solid #e4e4e4;
+	height: 285px;
+	width: 100%;
+	position: relative;
+}
+#container .priceL .detail-img img{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+#container .priceL .share{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+}
+#container .priceL .share .shareicon{
+	cursor: pointer;
+	display: block;
+	background: url(../image/share.png) 0 7px no-repeat;
+}
+#container .priceL .share .shareicon a{
+	margin-left: 20px;
+}
+#container .priceL .share .bsPanel{
+	width: 268px;
+	height: 105px;
+	border: 1px solid #E4E4E4;
+	font-size: 12px;
+	background: #fff;
+	position: absolute;
+	top: 24px;
+	display: none;
+	z-index: 10;
+}
+#container .priceL .share .bsPanel .bsTitle{
+	padding: 0 8px;
+	border-bottom: 1px solid #e8e8e8;
+	background: #f2f2f2;
+	text-align: left;
+	height: 20px;
+}
+#container .priceL .share .bsPanel .bsTitle a{
+	height: 20px;
+	line-height: 20px;
+	font-weight: 900;
+}
+#container .bsPanel .bsRlogo{
+	width: 68px;
+	float: left;
+	padding: 2px 0;
+	margin: 0;
+	border: 1px solid #fff;
+	text-align: center;
+}
+#container .bsPanel .bsRlogo a{
+	display: inline-block;
+	margin: 0 auto;
+}
+#container .bsPanel .bsLogoLink{
+	width: 121px;
+	overflow: hidden;
+	float: left;
+	margin: 3px 0;
+	margin-left: 8px;
+}
+#container .bsPanel .bsLogoLink a{
+	background: url(../image/weixin.png) no-repeat;
+	display: block;
+	height: 16px;
+	line-height: 16px;
+	padding: 0 0 0 24px;
+}
+#container .priceC{
+	width: 54.16666667%;
+	float: left;
+}
+#container .priceC .detail-infos{
+	height: 105px;
+	padding: 0 20px;
+	padding-bottom: 20px;
+}
+#container .priceC .detail-infos h3{
+	font-size: 18px;
+	line-height: 1.1;
+	font-weight: 900;
+}
+#container .priceC .detail-infos dt{
+	text-align: left;
+	width: auto;
+	margin-right: 10px;
+	float: left;
+	line-height: 2;
+}
+#container .priceC .detail-infos dd{
+	margin-left: 65px;
+}
+#container .priceC .detail-infos dd a{
+	display: inline-block;
+	padding: 5px 10px;
+	margin-top: 2px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	line-height: 1;
+	border: 1px solid #0979E9;
+	color: #0979E9;
+	font-size: 12px;
+}
+#container .priceC .info-items span{
+	padding-right: 30px;
+}
+#container .priceC .detail-opera{
+	background: #F5F5F5;
+	width: 100%;
+	height: 160px;
+	margin-bottom: 30px;
+}
+#container .priceC .detail-opera .ship-to{
+	padding: 10px 20px;
+}
+#container .priceC .detail-opera .ship-to input{
+	margin: 0;
+	vertical-align: middle;
+}
+#container .detail-opera .counter{
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	margin-top: -2px;
+}
+#container .col-md{
+	width: 29.16666667%;
+	display: inline-block;
+	line-height: 28px;
+}
+#container .col-md label{
+	display: inline-block;
+}
+#inputNumDown,#inputNumUp{
+	display: inline-block;
+	width: 12px;
+	height: 22px;
+	border: 1px solid #E4E4E4;
+	padding: 0 2px;
+	cursor: pointer;
+	float: left;
+	text-align: center;
+	line-height: 22px;
+}
+#inputNum{
+	float: left;
+	height: 18px;
+	width: 44px;
+	padding: 2px 7px;
+	border: 1px solid #E4E4E4;
+	text-align: center;
+	background: #fff;
+}
+#counterLimit{
+	width: 72px;
+	height: 36px;
+	padding: 10px;
+	border: 1px solid #f60;
+	z-index: 2;
+	background: #fff;
+	margin-bottom: 8px;
+	position: absolute;
+	left: 0;
+	bottom: 24px;
+	font-size: 12px;
+	line-height: 1.5;
+	color: #f60;
+}
+#container .detail-opera .add-cart{
+	padding: 15px 20px;
+	margin-top: 10px;
+	border-top: 1px solid #E4E4E4;
+}
+#container .detail-opera .add-cart .btn{
+	font-size: 18px;
+	color: #fff;
+	background: red;
+	border: 0;
+	padding: 4px 13px 5px;
+	height: 36px;
+	border: 1px solid red;
+	border-radius: 3px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+#container .detail-opera .add-cart a{
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+	border: 1px solid #E4E4E4;
+	margin-left: 10px;
+	font-size: 18px;
+	color: #333;
+	height: 25px;
+	background: #fff;
+	padding: 4px 13px 5px;
+	vertical-align: middle;
+}
+#container .priceR{
+	width: 20.83333333%;
+	float: left;
+	height: 315px;
+}
+#container .priceR table th{
+	padding: 8px 10px;
+	vertical-align: bottom;
+	line-height: 1.2;
+	border-bottom: 1px solid #E4E4E4;
+	text-align: left;
+}
+#container .priceR table th:first-child{
+	padding-left: 20px;
+}
+#container .priceR table td{
+	padding: 4px 10px;
+	vertical-align: bottom;
+	line-height: 1.2;
+	text-align: left;
+}
+#container .priceR table td:first-child{
+	padding-left: 20px;
+}
+#container .nav-tabs{
+	background: #F5F5F5;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	width: 1188px;
+	height: 34px;
+}
+#container .nav-tabs span{
+	position: relative;
+	float: left;
+	margin-top: -2px;
+	margin-left: -1px;
+	top: 1px;
+}
+#container .nav-tabs span a{
+	display: block;
+	height: 22px;
+	border-left: 1px solid #ddd;
+	color: #555;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-bottom-color: #fff;
+	cursor: default;
+	border-top: 2px solid #0979E9;
+	padding: 5px 15px 6px;
+}
+#container .tab-content{
+	border: 1px solid #ddd;
+	border-top: 0;
+}
+#container .tab-content .tab-pane{
+	padding: 10px 20px;
+	height: 180px;
+}
+#container .tab-content .tab-pane .table{
+	border: 1px solid #f2f2f2;
+	width: 100%;
+	border-spacing: 0;
+}
+#container .tab-content .tab-pane .table div{
+	float: left;
+	border: 1px solid #e4e4e4;
+	padding: 8px 10px;
+	line-height: 1.42857143;
+	font-size: 14px;
+}
+#container .tab-content .tab-pane .table .w116{
+	width: 116px;
+}
+#container .tab-content .tab-pane .table .w242{
+	width: 242px;
+}
+#container .tab-content .tab-pane .table .w92{
+	width: 92px;
+}
+#container .tab-content .tab-pane .table .w207{
+	width: 207px;
+}
+#container .tab-content .tab-pane .table .w987{
+	width: 987px;
+}
+#container .tab-content .tab-pane .table .pro-table-tit{
+	background: #f5f5f5;
+}
+
+
+

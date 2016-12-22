@@ -1,0 +1,59 @@
+@charset "utf-8";
+.fr{
+	float: right;
+}
+.mt5{
+	margin-top: 5px;
+}
+.mt20{
+	margin-top: 20px;
+}
+.rel{
+	position: relative;
+}
+#log .buy-car{
+	font-size: 30px;
+	margin-top: 10px;
+	border-left: 1px solid #CCCCCC;
+	height: 50px;
+	margin-left: 20px;
+	padding-left: 20px;
+	font-weight: 900;
+}
+/*container*/
+#container{
+	width: 1190px;
+	margin: 0 auto;
+}
+#container .cart-title{
+	height: 40px;
+	width: 100%;
+	border-bottom: 2px solid #f2f2f2;
+}
+#container .cart-title .bar-tabs-cart{
+	font-size: 20px;
+	position: absolute;
+	left: 0;
+}
+#container .cart-title .bar-tabs-cart li{
+	float: left;
+}
+#container .cart-title .bar-tabs-cart li a{
+	border-bottom: 2px solid #0979E9;
+	background: #fff;
+	color: #0979E9;
+	z-index: 50;
+	padding: 6px 10px;
+	display: block;
+	height: 28px;
+}
+#container .cart-title .carriage{
+	position: absolute;
+	right: 0;
+	top: 10px;
+	z-index: 1;
+	font-size: 14px;
+}
+
+
+

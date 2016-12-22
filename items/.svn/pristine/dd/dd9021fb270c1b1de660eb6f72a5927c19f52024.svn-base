@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>电子元器件采购平台,IC交易网-云汉芯城（ICkey）电子产业服务平台</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		onload = function(){
+			$(".vip").mouseover(function(){
+				$(this).css("background","#fff");
+				$(".minicenter").css("display","block")
+			})
+			$(".vip").mouseout(function(){
+				$(this).css("background","");
+				$(".minicenter").css("display","none")
+			})
+			$("#adcon > span").click(function(){
+				$(this).parent().parent().remove();
+			})
+			$(".buycarcon").mouseover(function(){
+				$(".minicarmenu").css("display","block")
+			})
+			$(".buycarcon").children().mouseout(function(){
+				$(".minicarmenu").css("display","none")
+			})
+		}
+	</script>
+</head>
+<body>
+	<!--header-->
+	<div id="header">
+		<div id="header-top">
+			<div class="_left">
+				<span class="welcome">您好，欢迎来到云汉芯城</span>
+				<ul class="login">
+					<li><a href="#" class="theme-link">请登录</a></li>
+					<li><span class="headline">|</span></li>
+					<li><a href="#" class="theme-link">免费注册</a></li>
+				</ul>
+			</div>
+			<div class="_right">
+				<ul>
+					<li class="vip">
+						<span>
+							<i class="icon-member"></i>
+							<a href="#" class="theme-link">会员中心&ensp;</a>
+							<i class="icon-jt"></i>
+						</span>
+						<div class="minicenter">
+							<div class="minicentercon">
+								<p>
+									<span class="theme-link">您好</span>
+									<a href="#" class="theme-link">请登录</a>
+								</p>
+								<ul>
+									<li><a href="#">我的订单</a></li>
+									<li class="headline">|</li>
+									<li><a href="#">询价管理</a></li>
+									<br/>
+									<li><a href="#">优惠券</a></li>
+									<li class="headline">|</li>
+									<li><a href="#">售后管理</a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li><span class="headline">|</li>
+					<li class="qqkf">
+						<span>
+							<i class="icon-qq"></i>
+							<a href="#">
+								在线客服 ：4008626630
+							</a>
+						</span>
+					</li>
+					<li><span class="headline">|</li>
+					<li class="call-center">
+						<span>
+							<i class="icon-call"></i>
+							客服中心 ：400-862-6630
+						</span>
+					</li>
+					<li><label class="headline">|</li>
+					<li class="servicetime">服务时间：9:00-18:00</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--ad-->
+	<div id="ad">
+		<div id="adcon">
+			<a href="#">
+				<img src="image/ad.jpg" alt=""/>
+			</a>
+			<span>×</span>
+		</div>
+	</div>
+	<!--log-->
+	<div id="log">
+		<div id="logcon">
+			<h1>
+				<a href="#"><img src="image/logo.png" alt="ickey"/></a>
+			</h1>
+			<div class="search">
+				<form action="" method="get">
+					<div class="searchtxt">
+						<input type="text" class="searchmodel" value="" placeholder="请输入搜索型号"/>
+						<input type="text" class="searchnum" value="" placeholder="请输入采购数量"/>
+						<input type="button" class="searchbtn" value="搜 索" />
+					</div>
+					<div class="searchtip">
+						<div class="_left">
+							<a href="#">树莓派</a>
+							<a href="#" style="color: #f00;">VISHAY特价</a>
+							<a href="#">热点库存</a>
+							<a href="#">铝电解电容</a>
+							<a href="#">Intel专区</a>
+						</div>
+						<div class="_right">
+							<input type="checkbox" name="" id="spot" value="" />
+							<label for="spot">现货</label>
+							<input type="checkbox" name="" id="accur" value="" />
+							<label for="accur">精准搜索</label>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="buycar">
+				<div class="buycarcon">
+					<span>
+						<i class="cart-count">0</i>
+						<a href="#">我的购物车</a>
+					</span>
+					<div class="minicarmenu">
+						<div class="minicarmenucon">您的购物车为空！请先选择您要购买的型号。</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--nav-->
+	<div id="nav">
+		<div id="navcon">
+			<div class="navall">
+				<h2>全部分类</h2>
+				<div class="menunav">
+					<ul>
+						<li>
+							<a href="#">被动器件</a>
+							<b>&gt;</b>
+						</li>
+						<li>
+							<a href="#">开发工具</a>
+							<b>&gt;</b>
+						</li>
+						<li>
+							<a href="#">连接器</a>
+							<b>&gt;</b>
+						</li>
+						<li>
+							<a href="#">仪器仪表</a>
+							<b>&gt;</b>
+						</li>
+						<li>
+							<a href="#">微控制器/微处理器</a>
+							<b>&gt;</b>
+						</li>
+						<li>
+							<a href="#">电源管理</a>
+							<b>&gt;</b>
+						</li>
+						<li>
+							<a href="#">二三极管</a>
+							<b>&gt;</b>
+						</li>
+						<li>
+							<a href="#">信号链</a>
+							<b>&gt;</b>
+						</li>
+						<li>
+							<a href="#">储存器</a>
+							<b>&gt;</b>
+						</li>
+						<li>
+							<a href="#">传感器</a>
+							<b>&gt;</b>
+						</li>
+						<li>
+							<a href="#">光电器件</a>
+							<b>&gt;</b>
+						</li>
+					</ul>
+					<div class="secMenu">
+						<div class="entity-main">
+							<div class="entity-list">
+								<div class="dt">
+									<a href="#">电容</a>
+									<i>&gt;</i>
+								</div>
+								<div class="dd">
+									<a href="#">纸质电容</a>
+									<a href="#">阵列电容</a>
+									<a href="#">云母电容</a>
+									<a href="#">高分子电容</a>
+									<a href="#">可调电容</a>
+									<a href="#">贴片电容</a>
+									<a href="#">钽电容</a>
+									<a href="#" style="color: red;">薄膜电容</a>
+									<a href="#" class="more">更多</a>
+								</div>
+								<span class="line"></span>
+							</div>
+							<div class="entity-list">
+								<div class="dt">
+									<a href="#">电阻</a>
+									<i>&gt;</i>
+								</div>
+								<div class="dd">
+									<a href="#">碳膜电阻</a>
+									<a href="#">薄膜电阻</a>
+									<a href="#">水泥电阻</a>
+									<a href="#">绕线电阻</a>
+									<a href="#">通孔电阻</a>
+									<a href="#" style="color: red;">金属膜电阻</a>
+									<a href="#">网络排阻</a>
+									<a href="#">贴片电阻</a>
+									<a href="#" class="more">更多</a>
+								</div>
+								<span class="line"></span>
+							</div>
+							<div class="entity-list">
+								<div class="dt">
+									<a href="#">晶振</a>
+									<i>&gt;</i>
+								</div>
+								<div class="dd">
+									<a href="#">有源晶振</a>
+									<a href="#">无源晶振</a>
+								</div>
+								<span class="line"></span>
+							</div>
+							<div class="entity-list">
+								<div class="dt">
+									<a href="#">电感</a>
+									<i>&gt;</i>
+								</div>
+								<div class="dd">
+									<a href="#">非屏蔽电感</a>
+									<a href="#">屏蔽电感</a>
+									<a href="#" style="color: red;">贴片电感</a>
+									<a href="#">插件式电感</a>
+								</div>
+								<span class="line"></span>
+							</div>
+							<div class="entity-list">
+								<div class="dt">
+									<a href="#">电位器</a>
+									<i>&gt;</i>
+								</div>
+								<div class="dd">
+									<a href="#" style="color: red;">微调电位器</a>
+									<a href="#">滑动式电位器</a>
+								</div>
+								<span class="line"></span>
+							</div>
+							<div class="entity-list">
+								<div class="dt">
+									<a href="#">磁性材料</a>
+									<i>&gt;</i>
+								</div>
+								<div class="dd">
+									<a href="#">磁环</a>
+									<a href="#">磁芯</a>
+								</div>
+								<span class="line"></span>
+							</div>
+							<div class="entity-list">
+								<div class="dt">
+									<a href="#">保护器件</a>
+									<i>&gt;</i>
+								</div>
+								<div class="dd">
+									<a href="#">保险丝</a>
+								</div>
+								<span class="line"></span>
+							</div>
+							<div class="typelogo">
+								<div class="f1">
+									<a href="#"><img src="image/nav1f1.jpg"/></a>
+								</div>
+								<div class="f1">
+									<a href="#"><img src="image/nav1f2.jpg"/></a>
+								</div>
+								<div class="f1">
+									<a href="#"><img src="image/nav1f3.jpg"/></a>
+								</div>
+								<div class="f1">
+									<a href="#"><img src="image/nav1f4.jpg"/></a>
+								</div>
+								<div class="f1">
+									<a href="#"><img src="image/nav1f5.jpg"/></a>
+								</div>
+								<div class="f1">
+									<a href="#"><img src="image/nav1f6.jpg"/></a>
+								</div>
+								<div class="f1">
+									<a href="#"><img src="image/nav1f7.jpg"/></a>
+								</div>
+								<div class="f1">
+									<a href="#"><img src="image/nav1f8.jpg"/></a>
+								</div>
+								<div class="f1">
+									<a href="#"><img src="image/nav1f9.jpg"/></a>
+								</div>
+								<div class="f2">
+									<a href="#"><img src="image/nav1f10.jpg"/></a>
+								</div>
+								<div class="f2">
+									<a href="#"><img src="image/nav1f11.jpg"/></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="navbar">
+				<ul>
+					<li>
+						<a href="#">库存寄售服务</a>
+					</li>
+					<li>
+						<a href="#">开发工具商城</a>
+					</li>
+					<li>
+						<a href="#">PCB服务</a>
+					</li>
+					<li>
+						<a href="#">元器件数据服务</a>
+					</li>
+					<li>
+						<a href="#">品牌专区</a>
+					</li>
+				</ul>
+			</div>
+			<div class="bd">
+				<a href="#"><img src="image/iphone7.gif"/></a>
+			</div>
+		</div>
+	</div>
+	<!--banner-->
+	<div id="banner">
+		<div class="container">
+			<div class="express">
+				<div class="expressTop">
+					<h3>
+						<a href="javascript:;">云汉速递</a>
+					</h3>
+					<h4>
+						<a href="javascript:;" class="icon-prev">&lt;</a>
+						<a href="javascript:;" class="icon-next">&gt;</a>
+					</h4>
+				</div>
+				<div class="expressCon">
+					<ul style="position: relative;">
+						<li style="position: absolute;left: 0;top: 0;width: 200px;height: 115px;">
+							<h5><a href="#">12•8云汉电子节盛大开启，1年1次别错过！</a></h5>
+							<p>期待着期待着，云汉电子节正式开启啦！好货疯抢中，好礼缤纷送，惊喜多多，点我速来~</p>
+						</li>
+						<li style="position: absolute;left: 0;top: 0;width: 200px;height: 115px;display: none;">
+							<h5><a href="#">下单得400元京东卡啦~Arrow、Verical优质货源任选！</a></h5>
+							<p>采购Arrow和Verical货源，满1.5万得200元京东卡，
+								满8万得400元京东卡！</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="gift">
+				<a href="#">
+					<img src="image/gift1.png" alt="" />
+					<span>IC币换礼</span>
+				</a>
+				<a href="#">
+					<img src="image/gift2.png" alt="" />
+					<span>询价</span>
+				</a>
+				<a href="#">
+					<img src="image/gift3.png" alt="" />
+					<span>样片申请</span>
+				</a>
+				<a href="#">
+					<img src="image/gift4.png" alt="" />
+					<span>闪购</span>
+				</a>
+				<a href="#">
+					<img src="image/gift5.png" alt="" />
+					<span>问答</span>
+				</a>
+				<a href="#">
+					<img src="image/gift6.png" alt="" />
+					<span>开发板试用</span>
+				</a>
+			</div>
+		</div>
+		<div class="bannercon">
+			<ul class="photoList">
+				<li style="background: url(image/banner1.jpg) 50% 0% no-repeat rgb(213, 19, 1);display: block"><a href="#" style="width: 100%;display: inline-block;height: 100%;"></a></li>
+				<li style="background: url(image/banner2.jpg) 50% 0% no-repeat rgb(254, 197, 30);display: none;"><a href="#" style="width: 100%;display: inline-block;height: 100%;"></a></li>
+				<li style="background: url(image/banner3.jpg) 50% 0% no-repeat rgb(230, 230, 231);display: none;"><a href="#" style="width: 100%;display: inline-block;height: 100%;"></a></li>
+			</ul>
+			<div class="pointList">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--conshow-->
+	<div id="conshow">
+		<div class="conshow1">
+			<a href="#"><img src="image/conshow1.jpg" alt=""/></a>
+		</div>
+		<div class="conshow2">
+			<a href="#"><img src="image/conshow2.jpg" alt=""/></a>
+		</div>
+		<div class="conshow3">
+			<a href="#"><img src="image/conshow3.jpg" alt=""/></a>
+		</div>
+		<div class="conshow4">
+			<a href="#"><img src="image/conshow4.jpg" alt=""/></a>
+		</div>
+	</div>
+	<!--overseas-->
+	<div id="overseas">
+		<h2>
+			<span></span>
+			<h3></h3>
+			<span></span>
+		</h2>
+	</div>
+</body>
+</html>

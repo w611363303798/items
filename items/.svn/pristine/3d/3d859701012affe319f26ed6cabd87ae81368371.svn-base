@@ -1,0 +1,23 @@
+onload = function(){
+}
+onscroll = function(){
+	var logo = document.getElementById("log");
+	var buyCar = document.getElementById("logcon").getElementsByClassName("buycar")[0];
+	var _top = document.body.scrollTop || document.documentElement.scrollTop;
+	if(_top >=120){
+		logo.style.position = "fixed";
+		logo.style.top = "0";
+		logo.style.zIndex = "1000";
+		logo.style.height = "92px";
+		logo.style.paddingTop = 0;
+		logo.style.borderBottom = "1px solid #ddd";
+		buyCar.style.display = "none";
+	}else{
+		logo.style.position = "";
+		logo.style.zIndex = "";
+		logo.style.borderBottom = "";
+		logo.style.height = "102px";
+		logo.style.paddingTop = "10px";
+		buyCar.style.display = "block";
+	}
+}

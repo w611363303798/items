@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录页面</title>
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+		<link rel="stylesheet" type="text/css" href="css/logincommon.css"/>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--top-->
+		<div id="top" class="bg-f5">
+			<div id="topcon" class="ptb5">
+				<a href="#">收藏云汉芯城</a>
+				<ul>
+					<li>您好！欢迎来到ICkey!</li>
+					<li class="mlr5">|</li>
+					<a href="#">新手上路</a>
+				</ul>
+			</div>
+		</div>
+		<!--logo-->
+		<div id="logo" class="ptb10 clearfix">
+			<a href="index.html"><img src="image/logo.png"/></a>
+			<span class="welcome">欢迎登录</span>
+		</div>
+		<!--login-->
+		<div id="login" class="rel">
+			<div class="loginbanner">
+				<ul>
+					<li><a href="#"></a></li>
+				</ul>
+			</div>
+			<div class="container rel z1">
+				<div class="login-content">
+					<a class="new-user theme-link" href="register.html"><i>&gt;</i>注册新用户</a>
+					<ul class="mt35 pl20">
+						<li><a href="javascript:;">账号登录</a></li>
+						<li><a href="javascript:;">免密码登录</a></li>
+					</ul>
+					<div class="rel tab-content">
+						<div class="loginerror" style="display: none;">
+							<i class="loginerroricon">▬</i>
+							<span>账号名与密码不匹配，请重新输入</span>
+						</div>
+						<div class="tab-pane" style="display: block;">
+							<form action="" method="post">
+								<div class="form-group rel clearfix">
+									<input type="text" id="loginname" placeholder="用户名/邮箱/手机号码" />
+									<i class="ipt-icon unameicon"></i>
+								</div>
+								<div class="form-group rel clearfix">
+									<input type="password" id="password" />
+									<i class="ipt-icon pwdicon"></i>
+								</div>
+								<div class="form-group clearfix">
+									<label class="fs-12">
+										<input type="checkbox" id="remembermeBtn"/>
+										<span>一周内免登录</span>
+									</label>
+									<a href="#" class="default-link fs-12">忘记密码 ?</a>
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn">
+										登<span class="pr10"></span>录
+									</button>
+								</div>
+							</form>
+						</div>
+						<div class="tab-pane">
+							<form action="" method="post">
+								<div class="form-group rel clearfix">
+									<input type="text" id="loginname" placeholder="请输入手机号码" />
+									<i class="ipt-icon unameicon"></i>
+								</div>
+								<div class="form-group rel clearfix phonelogincode">
+									<input type="text" placeholder="请输入正确的验证码" />
+									<div class="code"></div>
+								</div>
+								<div class="form-group rel clearfix phonelogincode">
+									<input type="text" placeholder="请输入动态密码" />
+									<div class="dynamicpw">发送动态密码</div>
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn">
+										登<span class="pr10"></span>录
+									</button>
+								</div>
+							</form>
+						</div>
+						<div class="otherlogin">
+							其他登录方式
+							<a href="#" class="login-qq">
+								<i></i>
+								QQ
+							</a>
+							<a href="#" class="login-wx">
+								<i></i>
+								微信
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--bottom-->
+		<div id="footer">
+			<ul>
+				<li><a href="#">关于云汉芯城</a></li>
+				<li><a href="#">企业简介</a></li>
+				<li><a href="#">企业文化</a></li>
+				<li><a href="#">服务简介</a></li>
+				<li><a href="#">联系我们</a></li>
+				<li><a href="#">加入我们</a></li>
+			</ul>
+			<div class="footer-address">
+				<p>地址：上海市漕河泾松江新兴产业园32号11层（莘砖公路258号）　客服热线：400-862-6630 (9:00-18:00) 　投诉电话：021-64821936-9120</p>
+				<p class="mt10">© 2016 www.ickey.cn 　沪ICP备10202707号</p>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(".code").html(code(4));
+		$(".code").click(function(){
+			$(this).html(code(4))
+		})
+		$(".login-content ul a:first").addClass("click")
+		$(".login-content ul a").click(function(){
+			$(this).addClass("click").parent().siblings().children().removeClass("click");
+			$(".tab-pane").eq($(this).parent().index()).css("display","block").siblings(".tab-pane").css("display","none");
+		})
+	</script>
+</html>
