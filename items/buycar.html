@@ -274,7 +274,6 @@
 			if($(".check").length == 0){
 				$(".commodityNum").html(0)
 			}else{
-				console.log(1)
 				$(".commodityNum").html($(".check:checked").length)
 			}
 			$(".check").click(function(){
@@ -322,7 +321,6 @@
 				$(".check").each(function(){
 					if($(this).prop("checked")){
 						allprice += Number($(this).parent().siblings().eq(4).children().children().html());
-						console.log(allprice)
 					}
 					$(".AlltotalPrices").html(allprice);
 				})
@@ -345,10 +343,35 @@
 			})
 			//全部删除
 			$(".alldel").click(function(){
-				$("tbody tr").remove();
-				oBCookie.list = [];
-				var newStr = JSON.stringify(oBCookie);
-				cookieUtil.setCookie(cookieName,newStr,7)
+				$(".AlltotalPrices").html(0);
+				if($(".check:checked").length==oBCookie.list.length){
+					oBCookie.list = [];
+					var newStr = JSON.stringify(oBCookie);
+					cookieUtil.setCookie(cookieName,newStr,7)
+				}if($(".check:checked").length != 0){
+					var _length = oBCookie.list;
+					for(var i=0; i<_length.length; i++){
+						if(_length[i].name == $(".check:checked").parent().siblings().eq(0).children().html()){
+							_length.splice(i,1);
+							break;
+						}
+					}
+					var str = JSON.stringify(_length);
+					var hh = str.substring(1,str.length-1);
+					oBCookie.list = [];
+					if(hh!=""){
+						var obj = JSON.parse(hh);
+						oBCookie.list.push(obj);     
+					}
+					var newStr=JSON.stringify(oBCookie);
+					cookieUtil.setCookie(cookieName,newStr,7);
+				}
+				$(".check").each(function(){
+					if($(this).prop("checked")){
+						$(this).parent().parent().remove();
+					}
+				})
+				$(".commodityNum").html($(".check:checked").length);
 			})
 		</script>
 	</body>
